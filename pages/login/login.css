@@ -1,0 +1,162 @@
+@charset "utf-8";
+html,
+body {
+	background: #fff;
+}
+
+
+/*.mui-input-group:before{
+	background: none;
+}*/
+
+.login a {
+	color: #666;
+}
+
+.login .login-form {
+	margin-top: 1rem; padding: 0 .4rem;
+}
+
+.login .login-way {
+	margin-top: 30px;
+	text-align: center; font-size: .32rem;
+	
+}
+
+.login .login-way a{
+	color: #2674d9!important;
+}
+
+.login .login-way li {
+	margin-bottom: 10px;
+}
+
+.login .login-way li a {
+	color: #666;
+}
+
+.login .btn-block-login {
+	background: #2674d9;
+	font-size: .32rem;
+	display: block;
+	width: 100%;
+	margin: 10px 0;
+	padding: 10px 0;
+	color: #fff;
+	border: none;
+	box-shadow: .02rem .02rem .08rem #9bc2f3;
+	border-radius: .1rem;
+}
+
+.login #yzm {
+	width: 30%;
+	float: left;
+}
+
+.login #btn-yzm {
+	width: 35%;
+	float: right;
+	color: #666;
+}
+
+.login .box {
+	position: relative;
+}
+
+.login .box .font1 {
+	position: absolute;
+	top: 1.5rem;
+	left: .76rem;
+	right: .76rem;
+	font-size: .60rem;
+	color: #fff;
+}
+
+.login .box .font2 {
+	position: absolute;
+	top: 2.48rem;
+	left: .76rem;
+	right: .76rem;
+	font-size: .46rem;
+	color: #f2eded;
+}
+
+.login .login-input-line {
+	font-size: .28rem;
+	color: #808080;
+}
+
+.login .login-choice{
+	margin-bottom: .68rem;
+	font-size: .28rem;
+}
+
+.login .login-choice input{
+	margin-right: .1rem;
+}
+
+.login .login-choice a, .login .login-choice input{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.login .login-input-line {
+	position: relative;
+	padding-left: .5rem;
+	border-bottom: 1px solid #e1e1e1;
+}
+
+.login .login-input-line input {
+	padding: 0;
+	border: none;
+	margin: 0;
+}
+
+.login .login-input-line .icon-input {
+	position: absolute;
+	left: 0;
+	width: .42rem;
+	height: .42rem;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	display: inline-block;
+}
+
+.login .login-input-line .icon-phone {
+	background: url(../../images/icon-phone.png) no-repeat center;
+	background-size: .42rem .42rem;
+}
+
+.login .login-input-line .icon-yzm {
+	background: url(../../images/icon-yzm.png) no-repeat center;
+	background-size: .42rem .42rem;
+}
+
+.login .login-input-line {
+	margin-bottom: .68rem;
+}
+
+.login .login-input-line .input-yzm {
+	width: 40%;
+}
+
+.login .btn-get-yzm {
+	position: absolute;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	margin: 0;
+	padding: 0;
+	font-size: .28rem;
+	color: #2674d9;
+	border: none;
+	vertical-align: middle;
+}
+
+.login .btn-get-yzm:hover{
+	font-size: .28rem;
+	color: #2674d9;
+	background: none;
+}

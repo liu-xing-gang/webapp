@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>认证</title>
+		<link rel="stylesheet" href="../../mui/css/mui.min.css" />
+		<link rel="stylesheet" href="../../app.css" />
+		<link rel="stylesheet" href="auth.css" />
+		<script src="../../app.js"></script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">认证</h1>
+		</header>
+		<div class="auth">
+			<div class="auth-container">
+
+				<form action="">
+					<div class="auth-name">
+						<div class="aut-name-cont">
+							<h1 class="auth-h1">设置您的彩店名称</h1>
+							<div class="auth-input-group">
+								<input type="text" placeholder="旺财旗舰店" class="aname" />
+								<button type="button" class="btn-check-aname">验证</button>
+							</div>
+						</div>
+						<h2 class="auth-h2">认证通过后，不可修改，请慎重填写</h2>
+					</div>
+					<div class="auth-icon">
+						<h3 class="auth-h3">请选择您的彩店图标</h3>
+						<div id="slider" class="mui-slider">
+							<div class="mui-slider-group mui-slider-loop">
+								<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+								<div class="mui-slider-item mui-slider-item-duplicate">
+									<a href="#">
+										<img src="../../mui/_demo/images/yuantiao.jpg">
+									</a>
+								</div>
+								<!-- 第一张 -->
+								<div class="mui-slider-item">
+									<a href="#">
+										<img src="../../mui/_demo/images/shuijiao.jpg">
+									</a>
+								</div>
+								<!-- 第二张 -->
+								<div class="mui-slider-item">
+									<a href="#">
+										<img src="../../mui/_demo/images/muwu.jpg">
+									</a>
+								</div>
+								<!-- 第三张 -->
+								<div class="mui-slider-item">
+									<a href="#">
+										<img src="../../mui/_demo/images/cbd.jpg">
+									</a>
+								</div>
+								<!-- 第四张 -->
+								<div class="mui-slider-item">
+									<a href="#">
+										<img src="../../mui/_demo/images/yuantiao.jpg">
+									</a>
+								</div>
+								<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+								<div class="mui-slider-item mui-slider-item-duplicate">
+									<a href="#">
+										<img src="../../mui/_demo/images/shuijiao.jpg">
+									</a>
+								</div>
+							</div>
+							<div class="mui-slider-indicator">
+								<div class="mui-indicator mui-active"></div>
+								<div class="mui-indicator"></div>
+								<div class="mui-indicator"></div>
+								<div class="mui-indicator"></div>
+							</div>
+							<div class="btn-swiper-group">
+								<div class="btn-swiper btn-swiper-prev" id="btn-swiper-prev"></div>
+								<div class="btn-swiper btn-swiper-next" id="btn-swiper-next"></div>
+								<div class="clearfix"></div>
+							</div>
+						</div>
+					</div>
+			</div>
+			<button type="button" class="btn-next">下一步</button>
+		</div>
+
+	
+		
+		</form>
+
+		</div>
+		</div>
+		<script src="../../mui/js/mui.min.js"></script>
+		<script src="../../libs/vue.min.js"></script>
+		<script type="text/javascript">
+			mui.plusReady(function() {
+				//获得slider插件对象
+				var gallery = mui('.mui-slider');
+				gallery.slider({
+					interval: 5000 //自动轮播周期，若为0则不自动播放，默认为0；
+				});
+				
+				
+			});
+			
+			document.getElementById('btn-swiper-prev').onclick = function(){
+				var gallery = mui('.mui-slider');
+				// gallery.slider().gotoItem(2);//跳转到第index张图片，index从0开始；
+				gallery.slider().prevItem()
+			}
+			
+			document.getElementById('btn-swiper-next').onclick = function(){
+				var gallery = mui('.mui-slider');
+				// gallery.slider().gotoItem(2);//跳转到第index张图片，index从0开始；
+				gallery.slider().nextItem()
+			}
+			
+			//			
+		</script>
+	</body>
+
+</html>

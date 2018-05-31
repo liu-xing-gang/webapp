@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>登录</title>
+		<link rel="stylesheet" href="../../mui/css/mui.min.css" />
+		<link rel="stylesheet" href="../../app.css" />
+		<link rel="stylesheet" href="login.css" />
+		<script src="../../app.js"></script>
+	</head>
+
+	<body>
+		<div class="login" id="login">
+			<div class="box">
+				<h1 class="font1">彩站宝</h1>
+				<h2 class="font2">为您打造专属的店铺品牌</h2>
+				<img src="../../images/banner-login.jpg" alt="" class="img-responsive" />
+			</div>
+			<div class="login-form">
+				<div class="login-form-cell" v-if="displayWay1">
+					<form id='login-form2'>
+						<div class="login-input-line">
+							<div class="icon-input icon-phone"></div>
+							<input type="text" name="phone" class="input-phone" placeholder="手机号" />
+						</div>
+						<div class="login-input-line">
+							<div class="icon-input icon-yzm"></div>
+							<input type="password" name="phone" class="input-pswd" placeholder="密码" />
+						</div>
+					</form>
+					<div class="login-choice">
+
+						<a id='remember'><input type="checkbox" />记住密码</a>
+						</span>
+						<a id='forgetPassword' class="fr">忘记密码</a>
+					</div>
+					<button id='login' class="btn-block-login">登录</button>
+
+				</div>
+				<div class="login-form-cell" v-if="displayWay2">
+					<form id='login-form2'>
+						<div class="login-input-line">
+							<div class="icon-input icon-phone"></div>
+							<input type="text" name="phone" class="input-phone" placeholder="手机号" />
+						</div>
+						<div class="login-input-line">
+							<div class="icon-input icon-yzm"></div>
+							<input type="text" name="phone" class="input-yzm" placeholder="验证码" />
+							<button type="button" class="btn-get-yzm fr" @click="getCode" 
+								v-if="seconds !== 120">重新发送（{{seconds}}）s</button>
+							<button type="button" class="btn-get-yzm fr" @click="getCode" 
+								v-else="seconds !== 120">获取验证码 </button>
+						</div>
+					</form>
+					<div class="mui-content-padded">
+						<button id='login' class="btn-block-login">登录</button>
+					</div>
+				</div>
+			</div>
+
+			<ul class="login-way">
+				<li>
+					<a @click="show()" v-if="displayWay2">密码登录</a>
+				</li>
+				<li>
+					<a @click="show(1)" v-if="displayWay1">用短信验证码登录</a>
+				</li>
+			</ul>
+		</div>
+		<script src="../../libs/vue.min.js"></script>
+		<script>
+			var vm = new Vue({
+				el: '#login',
+				data: {
+					// 密码登录
+					displayWay1: false,
+					// 验证码登录
+					displayWay2: true,
+					seconds: 120,
+					timer: null
+				},
+				methods: {
+					show: function(n) {
+						if(parseInt(n) === 1) {
+							this.displayWay1 = false
+							this.displayWay2 = true
+							return
+						}
+						this.displayWay1 = true
+						this.displayWay2 = false
+					},
+					getCode: function(e) {
+						this.timer = setInterval(() => {
+								if(this.seconds  <= 0) {
+									clearInterval(this.timer)
+									e.target.disabled = false
+									e.target.innerText = '获取验证码'
+								}
+								this.seconds --
+								e.target.disabled = true
+								e.target.innerHTML = '重新发送（' + this.seconds  + '）s'
+						}, 1000)
+					}
+				}
+			})
+		</script>
+	</body>
+
+</html>
