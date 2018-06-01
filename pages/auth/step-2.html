@@ -20,7 +20,7 @@
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 			<h1 class="mui-title">认证</h1>
 		</header>
-		<form action="../../index.html" method="post">
+		<form method="post">
 		<div class="auth">
 			<div class="uploads">
 				<div class="uploads-hint">
@@ -70,13 +70,17 @@
 			
 		</div>
 
-		<button class="btn-block">下一步</button>
+		<button type="button" class="btn-block" onclick="window.location.href='../../index.html'">下一步</button>
 		</form>
 
-
+	
 		<script src="../../mui/js/mui.min.js"></script>
 		<script src="../../libs/vue.min.js"></script>
-		
+		<script>
+			if(isiOSApp()){
+                window.webkit.messageHandlers.nav.postMessage('trans');
+            }
+		</script>
 	</body>
 
 </html>

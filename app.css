@@ -59,16 +59,12 @@ body{max-width: 750px; margin: 0 auto;}
 	box-shadow: .02rem .02rem .08rem #9bc2f3;
 }
 
-.mui-bar-nav~.mui-content{
-	padding-top: .8rem;
-}
-
-/* 底部导航 */
 #nav-bar{
 	box-shadow: 0 0 10px 0 hsla(0,6%,58%,.6);
     -webkit-box-shadow: 0 0 10px 0 hsla(0,6%,58%,.6);
     -moz-box-shadow: 0 0 10px 0 hsla(0,6%,58%,.6);
 	background: #fff!important;
+	line-height: initial;
 }
 
 #nav-bar.mui-bar-tab{
@@ -88,7 +84,6 @@ body{max-width: 750px; margin: 0 auto;}
 }
 
 #nav-bar.mui-bar-tab .mui-tab-item .mui-icon {
-	/*top: 0;*/
     width: .5rem;
     height: .5rem;
     padding-top: 0;
@@ -135,13 +130,29 @@ body{max-width: 750px; margin: 0 auto;}
 	background-size: .5rem .5rem;
 }
 
-/* 公共标题头 */
+/*.mui-bar-nav.mui-bar .mui-icon{
+	margin: .2rem 0 0; padding: 0;
+}*/
+
+.mui-icon-back:before, .mui-icon-left-nav:before {
+    color: #fff;
+}
+
+/*.mui-bar .mui-icon{
+	font-size: .4rem;
+}*/
+
+.mui-bar-nav~.mui-content{
+	/*padding-top: .8rem;*/
+	padding-top: 44px;
+}
+
 .mui-bar{
 	position: fixed;
     z-index: 10;
     right: 0;
     left: 0;
-    height: .8rem;
+    /*height: .8rem;*/
     padding: 0 .16rem;
     border-bottom: 0;
     background-color: #4b89dc!important;
@@ -152,23 +163,12 @@ body{max-width: 750px; margin: 0 auto;}
     max-width: 750px;
     margin: auto;
     color: #fff;
-    line-height: .8rem;
-}
-
-.mui-bar-nav.mui-bar .mui-icon{
-	margin: .2rem 0 0; padding: 0;
+    /*line-height: .8rem;*/
 }
 
 .mui-bar .mui-title{
-	height: .8rem;
-	font-size: .36rem; line-height: .8rem;
+	/*height: .8rem;
+	font-size: .36rem; 
+	line-height: .8rem;*/
 	color: #fff;
-}
-
-.mui-icon-back:before, .mui-icon-left-nav:before {
-    color: #fff;
-}
-
-.mui-bar .mui-icon{
-	font-size: .4rem;
 }

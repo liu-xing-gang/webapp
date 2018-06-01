@@ -71,7 +71,9 @@
 
 #hint{
 	position: relative; 
-	margin-top: .8rem; height: .86rem; padding: .1rem 1.8rem .1rem .24rem;
+	/*margin-top: .8rem; */
+	margin-top: 44px; 
+	height: .86rem; padding: .1rem 1.8rem .1rem .24rem;
 	text-align: justify; font-size: .24rem; line-height: 1.4;
 	color: #fa8100;
 	background-color: #ffedc0;
@@ -85,8 +87,8 @@
 	background-color: #f2f2f2;	
 }
 
-
 #slider .media{
+	margin: 0; padding: 0 .24rem;
 	font-size: .24rem; line-height: 1;
 	color: #808080;
 }
@@ -96,11 +98,32 @@
 }
 
 #slider .m-left{
-	width: 20%; height: 2rem;
+	width: 20%; height: 2rem; border-right: 1px solid #f2f2f2;
 	text-align: center;
 }
 
+#slider .m-left .m-center{
+	
+}
+
 #slider .m-main{
+	position: relative;
+	width: 80%; height: 2rem; padding-right: .3rem;
+	background: url(../../images/arrow-r.png) no-repeat right center;
+	background-size: .3rem .3rem;
+}
+
+#slider .m-main-b{
+	position: absolute; bottom: 0;
+	padding: 0 .56rem .24rem;
+}
+
+#slider .m-main-b{
+    width: 100%;
+    text-align: center;
+}
+
+.flex-center{
 	display: -webkit-box;
     display: -moz-box;
     display: -ms-flexbox;
@@ -113,27 +136,62 @@
     -webkit-flex-direction: row;
     flex-direction: row;
     
-	width: 80%; height: 2rem;
+    -webkit-box-pack: justify;
+    -moz-justify-content: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    
+    -webkit-box-align: center;
+    -moz-align-items: center;
+    -webkit-align-items: center;
+    align-items: center;
+    
+    width: 100%;
+    text-align: center;
 }
 
 #slider .media .m-num{
-	padding: .24rem 0;
+	padding-bottom: .24rem;
 	font-size: .28rem;
 	color: #303030;
 }
 
 #slider .media .m-main-title{
-	padding: .24rem 0;
 	font-size: .28rem;
 	color: #303030;
 }
 
-#slider .media .m-num-samll{
-	padding: .24rem 0;
+#slider .media .m-num-small{
+	padding-bottom: .2rem;
 	font-size: .24rem;
 	color: #303030;
 }
 
 #slider .m-main-item{
 	float: left;
+	width: 33.333%;
+}
+
+#slider .m-main-h{
+	margin: 0 .2rem; padding: .24rem .2rem; border-bottom: 1px solid #f2f2f2;
+}
+
+#slider .mui-table-view-cell{
+	margin-bottom: .1rem; padding: 0;
+}
+
+#slider .mui-table-view{
+	background: #f2f2f2;
+}
+
+#slider .mui-table-view-cell{
+	background-color: #fff;
+}
+
+#slider .mui-table-view-cell:after{
+	background: none;
+}
+
+#slider .color-1{
+	color: #fba73f!important;
 }
