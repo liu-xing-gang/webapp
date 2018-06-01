@@ -1,0 +1,310 @@
+@charset "utf-8";
+#person{
+	background-color: #f2f2f2;
+}
+
+#person .banner{
+	padding: 0 .2rem;
+	background: url(../../images/banner-user.jpg) no-repeat;
+	background-size: cover;
+}
+
+#person .btn-user{
+	float: left;
+	display: block; width: .44rem; height: .44rem; margin: .32rem 0;
+}
+
+#person .btn-user-info{
+	float: right;
+}
+
+#person .avatar{
+	width: 1.5rem; height: 1.5rem; margin: 0 auto; border-radius: 50%;
+}
+
+#person .user-box{
+	text-align: center;
+	color: #fff;
+}
+
+#person .shop-name{
+	padding: .22rem 0 .18rem;
+	font-size: .3rem;
+}
+
+#person .btn-auth{
+	padding: .04rem .04rem; border: none; border-radius: .28rem;
+	font-size: .24rem; line-height: 1;
+	background-color: #fff;
+	color: #6d6d6d;
+}
+
+#person .half{
+	float: left;
+	width: 50%; padding-top: .32rem;
+}
+
+#person .half-label{
+	font-size: .28rem;
+}
+
+#person .half-txt{
+	padding: .1rem 0 .3rem;
+	font-size: .36rem;
+}
+
+#person .bor{
+	position: relative;
+}
+
+#person .bor::after{
+	content: '';
+	position: absolute; right: 0; top: 0; bottom: 0;
+	width: 1px; height: .72rem; margin: auto;
+	background-color: #fff;
+}
+
+#person .links{
+	font-size: .32rem;
+}
+
+#person .links a{
+	display: block; margin: 0; padding: 0 .24rem;
+	color: #303030;
+}
+
+#person .mui-table-view-cell{
+	padding: .28rem 0;
+}
+
+#person .mui-table-view-cell>a:not(.mui-btn){
+	overflow: initial;
+}
+
+#person .mui-table-view-cell:after{
+	left: 0;
+}
+
+#person .span-r{
+	float: right;
+	margin-right: .42rem;
+	font-size: .24rem;
+	color: #808080;
+}
+
+#person .span-l{
+	position: relative;
+	padding-left: .62rem;
+}
+
+#person .span-l::before{
+	content: '';
+	position: absolute; left: 0; 
+	width: .42rem; height: .42rem; 
+	/*css3 transform居中*/
+	top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    
+    background: red;
+}
+
+#person .txt-color1{
+	color: #e68515!important;
+}
+#person .span-l.icon-award::before{
+	background: url(../../images/icon-mine-12.png) no-repeat center;
+	background-size: contain;
+}
+
+#person .span-l.icon-recharge::before{
+	background: url(../../images/icon-mine-2.png) no-repeat center;
+	background-size: contain;
+}
+
+#person .span-l.icon-order-select::before{
+	background: url(../../images/icon-mine-7.png) no-repeat center;
+	background-size: contain;
+}
+
+#person .span-l.icon-species::before{
+	background: url(../../images/icon-mine-1.png) no-repeat center;
+	background-size: contain;
+}
+
+#person .span-l.icon-send::before{
+	background: url(../../images/icon-mine-4.png) no-repeat center;
+	background-size: contain;
+}
+
+#person .span-l.icon-documentary::before{
+	background: url(../../images/icon-mine-6.png) no-repeat center;
+	background-size: contain;
+}
+
+#person .span-l.icon-cooperate-order1::before{
+	background: url(../../images/icon-mine-7.png) no-repeat center;
+	background-size: contain;
+}
+
+#person .span-l.icon-cooperate-order2::before{
+	background: url(../../images/icon-mine-8.png) no-repeat center;
+	background-size: contain;
+}
+
+#person .span-l.icon-welfare::before{
+	background: url(../../images/icon-mine-9.png) no-repeat center;
+	background-size: contain;
+}
+
+
+#person .span-l.icon-store::before{
+	background: url(../../images/icon-mine-11.png) no-repeat center;
+	background-size: contain;
+}
+
+#person .span-l.icon-setting::before{
+	background: url(../../images/icon-mine-14.png) no-repeat center;
+	background-size: contain;
+}
+
+#person .span-l.icon-course::before{
+	background: url(../../images/icon-mine-15.png) no-repeat center;
+	background-size: contain;
+}
+
+#person .span-l.icon-assistant::before{
+	background: url(../../images/icon-mine-16.png) no-repeat center;
+	background-size: contain;
+}
+
+#person .span-l.icon-down1::before{
+	background: url(../../images/icon-mine-17.png) no-repeat center;
+	background-size: contain;
+}
+
+#person .span-l.icon-invite::before{
+	background: url(../../images/icon-mine-18.png) no-repeat center;
+	background-size: contain;
+}
+
+#person .span-l.icon-account::before{
+	background: url(../../images/icon-mine-19.png) no-repeat center;
+	background-size: contain;
+}
+
+#person .icon-setting2{
+	content: '';
+    position: absolute; z-index: 2;
+    left: 0;
+    width: .42rem;
+    height: .42rem;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    background: #000;
+}
+
+#person .span-l.icon-draw-bill::before{
+	background: url(../../images/icon-draw-bill.png) no-repeat center;
+	background-size: contain;
+}
+
+#person .span-l.icon-cash::before{
+	background: url(../../images/icon-cash.png) no-repeat center;
+	background-size: contain;
+}
+
+#person .links .mui-table-view{
+	margin-bottom: .24rem;
+}
+
+
+#person .links .mui-table-view:last-child{
+	margin-bottom: 0;
+}
+
+#person .mui-navigate-right:after, .mui-push-right:after {
+    right: .12rem;
+}
+
+/* 个人信息 */
+#p-info .mui-content>.mui-table-view:first-child{
+	margin-top: .24rem;
+}
+
+#p-info .p-box{
+	display: inline-block; width: .72rem; height: .72rem; border-radius: 50%;
+	vertical-align: middle;
+}
+
+#p-info .p-txt{
+	vertical-align: middle;
+	font-size: .26rem;
+	color: #808080;
+}
+
+#p-info .p-txt-title{
+	display: inline-block;
+	vertical-align: middle;
+	color: #303030;
+}
+
+#p-info .mui-table-view-cell{
+	margin: 0; padding: .12rem .24rem;
+}
+
+#p-info .mui-table-view-cell>a:not(.mui-btn){
+	margin: 0; padding: 0;
+	font-size: .3rem;
+}
+
+
+#p-info .mui-table-view-cell:after{
+	left: 0;
+}
+
+#p-info .mui-navigate-right:after, #p-info .mui-push-right:after{
+	right: -.1rem;
+	color: #808080;
+}
+
+#p-info .fix-w{
+	display: inline-block; width: 2.1rem; height: .72rem;
+	vertical-align: middle;
+	line-height: .72rem;
+}
+
+#p-info .btn-unbind{
+	display: block; width: 1.4rem; height: .66rem; margin: .03rem 0 0; padding: 0; border: none; border-radius: .1rem;
+	font-size: inherit; line-height: 1;
+	color: #fff;
+	background-color: #4a8bdc;
+}
+
+#p-info .btn-basic{
+	display: block; width: 1.4rem; height: .66rem; margin: .03rem .05rem 0; padding: 0; border: none; border-radius: .1rem;
+	font-size: inherit; line-height: 1;
+}
+
+#p-info .btn-code-shop{
+	color: #5b8dd5;
+	background-color: #f0f0f0;
+}
+
+#p-info .btn-code-down{
+	color: #fff;
+	background-color: #4a8bdc;
+}
+
+#p-info .no-arrow::after{
+	content: '';
+}
+
+#p-info #btn-save-setting{
+	right: 0;
+}
+
+
+
+

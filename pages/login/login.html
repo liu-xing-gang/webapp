@@ -41,7 +41,7 @@
 
 				</div>
 				<div class="login-form-cell" v-if="displayWay2">
-					<form id='login-form2'>
+					<form id='login-form2' action="../auth/step-1.html">
 						<div class="login-input-line">
 							<div class="icon-input icon-phone"></div>
 							<input type="text" name="phone" class="input-phone" placeholder="手机号" />
@@ -54,10 +54,11 @@
 							<button type="button" class="btn-get-yzm fr" @click="getCode" 
 								v-else="seconds !== 120">获取验证码 </button>
 						</div>
-					</form>
+					
 					<div class="mui-content-padded">
 						<button id='login' class="btn-block-login">登录</button>
 					</div>
+					</form>
 				</div>
 			</div>
 
@@ -106,6 +107,12 @@
 					}
 				}
 			})
+			
+			
+			// 
+			if(mui.os.ios){
+                window.webkit.messageHandlers.nav.postMessage('show');
+            }
 		</script>
 	</body>
 

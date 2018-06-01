@@ -102,14 +102,15 @@ body {
 
 .login .login-input-line {
 	position: relative;
-	padding-left: .5rem;
 	border-bottom: 1px solid #e1e1e1;
+	padding: .24rem 0 .24rem .5rem;
 }
 
 .login .login-input-line input {
 	padding: 0;
 	border: none;
 	margin: 0;
+	height: auto!important;
 }
 
 .login .login-input-line .icon-input {
