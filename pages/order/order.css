@@ -45,7 +45,7 @@
 	top: .8rem;
 }
 #slider .mui-slider-item{
-	border: none;
+	/*border: none;*/
 }
 
 #slider .o-empty-box{
@@ -85,3 +85,55 @@
 	background-color: #f2f2f2;	
 }
 
+
+#slider .media{
+	font-size: .24rem; line-height: 1;
+	color: #808080;
+}
+
+#slider .media p{
+	font-size: inherit;
+}
+
+#slider .m-left{
+	width: 20%; height: 2rem;
+	text-align: center;
+}
+
+#slider .m-main{
+	display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    
+    -webkit-box-direction: normal;
+    -webkit-box-orient: horizontal;
+    -moz-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    
+	width: 80%; height: 2rem;
+}
+
+#slider .media .m-num{
+	padding: .24rem 0;
+	font-size: .28rem;
+	color: #303030;
+}
+
+#slider .media .m-main-title{
+	padding: .24rem 0;
+	font-size: .28rem;
+	color: #303030;
+}
+
+#slider .media .m-num-samll{
+	padding: .24rem 0;
+	font-size: .24rem;
+	color: #303030;
+}
+
+#slider .m-main-item{
+	float: left;
+}

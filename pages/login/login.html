@@ -72,6 +72,7 @@
 			</ul>
 		</div>
 		<script src="../../libs/vue.min.js"></script>
+		<script src="../../mui/js/mui.min.js"></script>
 		<script>
 			var vm = new Vue({
 				el: '#login',
@@ -111,6 +112,7 @@
 			
 			// 
 			if(mui.os.ios){
+				alert(mui.os.ios)
                 window.webkit.messageHandlers.nav.postMessage('show');
             }
 		</script>
