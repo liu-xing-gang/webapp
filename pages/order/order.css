@@ -195,3 +195,93 @@
 #slider .color-1{
 	color: #fba73f!important;
 }
+
+
+#order-detail .project{
+	
+}
+
+#order-detail .project .p-head{
+	padding: .26rem .24rem .2rem;border-bottom: 1px solid #f3f3f3;
+	background-color: #fff;
+	
+}
+
+#order-detail .p-caption{
+	position: relative; 
+	padding-left: .16rem;
+	font-size: .28rem;
+	color: #303030;
+}
+
+#order-detail .p-caption::before{
+	content: '';
+	position: absolute; left: 0; top: 50%;
+	width: .04rem; height: .4rem; background-color: #4287df;
+	
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+	-moz-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	-o-transform: translateY(-50%);
+}
+
+#order-detail .p-date{
+	font-size: .2rem;
+	color: #808080;
+}
+
+#order-detail .week{
+	margin: 0 .24rem;
+	background-color: #fff;
+}
+
+#order-detail .week-arrange{
+	background-color: #fff;
+}
+
+#order-detail .w-table{
+	display: table;
+	width: 100%;
+	padding: .2rem 0;
+	border-bottom: 1px solid #f1f1f1;
+	line-height: 1;
+}
+
+#order-detail .w-table-cell{
+	display: table-cell;
+	vertical-align: middle;
+}
+
+#order-detail .w-table-cell:last-child{
+	width: 30%;
+	text-align: center;
+}
+
+#order-detail .timeline{
+	font-size: .24rem;
+	color: #808080;
+}
+
+#order-detail  .vs{
+	margin-top: .28rem;
+	font-size: .32rem;
+	color: #303030;
+}
+
+#order-detail  .vs i{
+	font-style: normal;
+	font-size: .32rem;
+	color: #808080;
+}
+
+#order-detail .result{
+	font-size: .28rem;
+	color: #303030;
+}
+
+#order-detail .p-ad{
+	padding: .3rem .24rem;
+	font-size: .3rem;
+	color: #3030330;
+}

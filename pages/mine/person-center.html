@@ -45,6 +45,9 @@
 						</div>
 						<div class="clearfix"></div>
 					</li>
+					<li class="welfare-task">
+						福利任务
+					</li>
 				</ul>
 			</div>
 			<div class="links">
@@ -156,5 +159,9 @@
 			</div>
 
 		</div>
-
+<script>
+	if(isiOSApp()){
+        window.webkit.messageHandlers.nav.postMessage('trans');
+    }
+</script>
 </html>

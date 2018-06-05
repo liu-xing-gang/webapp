@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>Document</title>
+	<link rel="stylesheet" href="../../mui/css/mui.min.css" />
+	<link rel="stylesheet" href="../../app.css" />
+	<link rel="stylesheet" href="person.css" />
+	<script src="../../app.js"></script>
+	<style>
+		html,body{
+			background-color: #fff;
+		}
+	</style>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">我的推广助手</h1>
+		</header>
+		<div class="main" id="assistant">
+			<ul class="a-table">
+				<li>
+					<div class="a-box"><img src="../../images/a-code.png" alt="" class="img-responsive" /></div>
+					<div class="a-txt">我的二维码</div>
+				</li>
+				<li>
+					<div class="a-box"><img src="../../images/a-card.png" alt="" class="img-responsive" /></div>
+					<div class="a-txt">我的名片</div>
+				</li>
+				<li>
+					<div class="a-box"><img src="../../images/a-poster.png" alt="" class="img-responsive" /></div>
+					<div class="a-txt">我的海报</div>
+				</li>
+				<li>
+					<div class="a-box"><img src="../../images/a-shop.png" alt="" class="img-responsive" /></div>
+					<div class="a-txt">我的微彩店</div>
+				</li>
+			</ul>
+			<section class="support">
+				<h1 class="s-title">服务支持</h1>
+				<div class="s-main">
+					<div class="s-main-item">
+						<span class="l-c">添加客服微信号: </span>
+						<span class="m-c" @click="copy($event)">caizhanbao008</span>
+						<span class="r-c">（点击复制）</span>
+					</div>
+					<div class="s-main-item">
+						<span class="l-c">关注微信公众号: </span>
+						<span class="m-c" @click="copy($event)">caizhanbao6666</span>
+						<span class="r-c">（点击复制）</span>
+					</div>
+				</div>
+				<div class="s-ad">
+
+						<div class="s-ad-txt">
+							添加客服微信，加入店主福利群，更多好礼等你来！
+						</div>
+
+				</div>
+			</section>
+		</div>
+	<script src="../../libs/vue.min.js"></script>
+	<script src="../../mui/js/mui.min.js"></script>
+	<script>
+		new Vue({
+			el: '#assistant',
+			methods: {
+				copy: function(e){
+					mui.toast(e.target.innerText + '复制成功！')
+				}
+			}
+		})
+	</script>
+</body>
+</html>

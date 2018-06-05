@@ -27,3 +27,7 @@ window.onorientationchange = window.onresize = function(){
 	resize()
 }
 resize();
+
+if(isiOSApp()){
+    window.webkit.messageHandlers.nav.postMessage('hide');
+}
