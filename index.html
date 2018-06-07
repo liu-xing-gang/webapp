@@ -1,130 +1,285 @@
 <!DOCTYPE html>
 <html>
 
-	<head>
-		<meta charset="utf-8">
-		<title>Hello MUI</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<head>
+    <meta charset="utf-8">
+    <title>Hello MUI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-		<link rel="stylesheet" href="mui/css/mui.min.css">
-		<link rel="stylesheet" href="app.css" />
-		<script src="app.js"></script>
-	</head>
+    <link rel="stylesheet" href="mui/css/mui.min.css">
+    <link rel="stylesheet" href="app.css" />
+    <link rel="stylesheet" href="pages/order/order.css">
+    <script src="app.js"></script>
+</head>
 
-	<body>
-		<header class="mui-bar mui-bar-nav">
-			<h1 id="title" class="mui-title">订单管理</h1>
-		</header>
-		<nav class="mui-bar mui-bar-tab" id="nav-bar">
-			<a id="defaultTab" class="mui-tab-item mui-active" href="pages/order/order-manage.html">
-				<span class="mui-icon icon-order"></span>
-				<span class="mui-tab-label">订单管理</span>
+<body>
+    <div id="app">
+        <header class="mui-bar mui-bar-nav" id="bar">
+            <a class="mui-icon mui-pull-left"></a>
+            <h1 class="mui-title">订单管理</h1>
+            <a class="mui-icon mui-pull-right" id="btn-filter" @click="toggleLayer">
+				<img src="images/iocn-filter.png" alt="" class="img-responsive">
 			</a>
-			<a class="mui-tab-item" href="pages/user/user-manage.html">
-				<span class="mui-icon icon-user"><!--span class="mui-badge">9</span>--></span>
-				<span class="mui-tab-label">用户管理</span>
-			</a>
-			<a class="mui-tab-item" href="pages/data/data-statistics.html">
-				<span class="mui-icon icon-data"></span>
-				<span class="mui-tab-label">数据统计</span>
-			</a>
-			<a class="mui-tab-item" href="pages/mine/person-center.html">
-				<span class="mui-icon icon-mine"></span>
-				<span class="mui-tab-label">个人中心</span>
-			</a>
-		</nav>
-		<!--<h1>Runtime supports 5+ Plus?</h1>
-            <p id="checked">checking...</p> -->
-		<!--<script src="mui/js/mui.min.js"></script>-->
-		<!--<script src="js/main.js"></script>
-		<script type="text/javascript" charset="utf-8">
-			 //mui初始化
-			mui.init();
-			var subpages = ['tab-webview-subpage-about.html', 'tab-webview-subpage-chat.html', 'tab-webview-subpage-contact.html', 'tab-webview-subpage-setting.html'];
-			var subpage_style = {
-				top: '45px',
-				bottom: '51px'
-			};
-			
-			var aniShow = {};
-			
-			 //创建子页面，首个选项卡页面显示，其它均隐藏；
-			mui.plusReady(function() {
-				var self = plus.webview.currentWebview();
-				for (var i = 0; i < 4; i++) {
-					var temp = {};
-					var sub = plus.webview.create(subpages[i], subpages[i], subpage_style);
-					if (i > 0) {
-						sub.hide();
-					}else{
-						temp[subpages[i]] = "true";
-						mui.extend(aniShow,temp);
-					}
-					self.append(sub);
-				}
-			});
-			 //当前激活选项
-			var activeTab = subpages[0];
-			var title = document.getElementById("title");
-			 //选项卡点击事件
-			mui('.mui-bar-tab').on('tap', 'a', function(e) {
-				var targetTab = this.getAttribute('href');
-				if (targetTab == activeTab) {
-					return;
-				}
-				//更换标题
-				title.innerHTML = this.querySelector('.mui-tab-label').innerHTML;
-				//显示目标选项卡
-				//若为iOS平台或非首次显示，则直接显示
-				if(mui.os.ios||aniShow[targetTab]){
-					plus.webview.show(targetTab);
-				}else{
-					//否则，使用fade-in动画，且保存变量
-					var temp = {};
-					temp[targetTab] = "true";
-					mui.extend(aniShow,temp);
-					plus.webview.show(targetTab,"fade-in",300);
-				}
-				//隐藏当前;
-				plus.webview.hide(activeTab);
-				//更改当前活跃的选项卡
-				activeTab = targetTab;
-			});
-			 //自定义事件，模拟点击“首页选项卡”
-			document.addEventListener('gohome', function() {
-				var defaultTab = document.getElementById("defaultTab");
-				//模拟首页点击
-				mui.trigger(defaultTab, 'tap');
-				//切换选项卡高亮
-				var current = document.querySelector(".mui-bar-tab>.mui-tab-item.mui-active");
-				if (defaultTab !== current) {
-					current.classList.remove('mui-active');
-					defaultTab.classList.add('mui-active');
-				}
-			});
-		</script>
-		
-		
-		<script>
-			// 判断runtime是否支持5+ API
-    if(navigator.userAgent.indexOf("Html5Plus")<0){//不支持5+ API
-        checked("不支持5+ API");
-    }else{//支持5+ API
-        checked("支持5+ API");
-    }
-    // 输出检测结果
-    function checked(ret){
-        if(document.body){
-            document.getElementById("checked").innerText=ret;
-        }else{
-            document.addEventListener("DOMContentLoaded",function(){
-                    document.getElementById("checked").innerText=ret;
-            },false);
+        </header>
+        <div :class="bShow == true ? 'layer-filters active' : 'layer-filters'">
+            <div class="f-l"><a class="layer-filters-cell current">全部彩种</a></div>
+            <div class="f-l" v-for="item in aTypes">
+                <a class="layer-filters-cell" v-text="item" @click="selectType($event)"></a>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div id="hint">
+            为了更方便您的彩民投注，建议您认证店铺，定制您的彩民版应用~
+            <a class="btn-auth-now">立即认证</a>
+        </div>
+        <div :class="bShow == true ? 'layer-mask active' : 'layer-mask'" @click="toggleLayer"></div>
+        <div id="slider" class="mui-slider mui-fullscreen">
+            <div id="sliderSegmentedControl" class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+                <div class="mui-scroll" id="mui-scroll">
+                    <a class="mui-control-item mui-active" href="#item1mobile">
+							订单(0)
+						</a>
+                    <a class="mui-control-item" href="#item2mobile">
+							合买(0)
+						</a>
+                    <a class="mui-control-item" href="#item3mobile">
+							跟单(0)
+						</a>
+                    <a class="mui-control-item" href="#item4mobile">
+							合作(0/0)
+						</a>
+                </div>
+            </div>
+            <!-- <div id="sliderProgressBar" class="mui-slider-progress-bar mui-col-xs-4"></div> -->
+            <div class="mui-slider-group">
+                <div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
+                    <div id="scroll1" class="mui-scroll-wrapper">
+                        <div class="mui-scroll">
+                            <div class="o-empty">
+                                <div class="o-empty-box"><img src="images/order-empty.png" alt="" class="img-responsive" /></div>
+                                <div class="o-empty-txt">暂时没有用户订单哦~</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="item2mobile" class="mui-slider-item mui-control-content">
+                    <div class="mui-scroll-wrapper">
+                        <div class="mui-scroll">
+                            <ul class="mui-table-view">
+                                <div class="mui-scroll">
+                                    <div class="o-empty">
+                                        <div class="o-empty-box"><img src="images/order-empty.png" alt="" class="img-responsive" /></div>
+                                        <div class="o-empty-txt">暂时没有数据~</div>
+                                    </div>
+                                </div>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div id="item3mobile" class="mui-slider-item mui-control-content">
+                    <div class="mui-scroll-wrapper">
+                        <div class="mui-scroll">
+                            <ul class="mui-table-view">
+                                <li class="mui-table-view-cell">
+                                    <a href="" class="media">
+                                        <section class="m-left fl flex-center">
+                                            <div class="m-center">
+                                                <div class="m-num">1</div>
+                                                <div>跟单人数</div>
+                                            </div>
+                                        </section>
+                                        <section class="m-main fr">
+                                            <section class="m-main-h">
+                                                <span class="m-main-title">竞彩足球</span>
+                                                <span class="m-main-title">混合</span>
+                                                <span class="m-main-title fr">小财神</span>
+                                            </section>
+
+                                            <section class="m-main-b">
+                                                <div class="m-main-item">
+                                                    <div class="m-num-small">7<i>%</i></div>
+                                                    <div>佣金比例</div>
+                                                </div>
+                                                <div class="m-main-item">
+                                                    <div class="m-num-small">2</div>
+                                                    <div>单倍金额</div>
+                                                </div>
+                                                <div class="m-main-item">
+                                                    <div class="m-num-small color-1">1830</div>
+                                                    <div>方案总金额</div>
+                                                </div>
+                                            </section>
+
+
+                                        </section>
+                                    </a>
+                                </li>
+                                <li class="mui-table-view-cell">
+                                    <a href="" class="media">
+                                        <section class="m-left fl flex-center">
+                                            <div class="m-center">
+                                                <div class="m-num">1</div>
+                                                <div>跟单人数</div>
+                                            </div>
+                                        </section>
+                                        <section class="m-main fr">
+                                            <section class="m-main-h">
+                                                <span class="m-main-title">竞彩足球</span>
+                                                <span class="m-main-title">混合</span>
+                                                <span class="m-main-title fr">小财神</span>
+                                            </section>
+
+                                            <section class="m-main-b">
+                                                <div class="m-main-item">
+                                                    <div class="m-num-small">7<i>%</i></div>
+                                                    <div>佣金比例</div>
+                                                </div>
+                                                <div class="m-main-item">
+                                                    <div class="m-num-small">2</div>
+                                                    <div>单倍金额</div>
+                                                </div>
+                                                <div class="m-main-item">
+                                                    <div class="m-num-small color-1">1830</div>
+                                                    <div>方案总金额</div>
+                                                </div>
+                                            </section>
+
+
+                                        </section>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div id="item4mobile" class="mui-slider-item mui-control-content">
+                    <div class="mui-scroll-wrapper">
+                        <div class="mui-scroll">
+                            <ul class="mui-table-view">
+                                <div class="mui-scroll">
+                                    <div class="o-empty">
+                                        <div class="o-empty-box"><img src="images/order-empty.png" alt="" class="img-responsive" /></div>
+                                        <div class="o-empty-txt">暂时没有数据~</div>
+                                    </div>
+                                </div>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <nav class="mui-bar mui-bar-tab" id="nav-bar">
+            <a id="defaultTab" class="mui-tab-item mui-active" href="pages/order/order-manage.html">
+					<span class="mui-icon icon-order"></span>
+					<span class="mui-tab-label">订单管理</span>
+				</a>
+            <a class="mui-tab-item" href="pages/user/user-manage.html">
+					<span class="mui-icon icon-user"><!--span class="mui-badge">9</span>--></span>
+					<span class="mui-tab-label">用户管理</span>
+				</a>
+            <a class="mui-tab-item" href="pages/data/data-statistics.html">
+					<span class="mui-icon icon-data"></span>
+					<span class="mui-tab-label">数据统计</span>
+				</a>
+            <a class="mui-tab-item" href="pages/mine/person-center.html">
+					<span class="mui-icon icon-mine"></span>
+					<span class="mui-tab-label">个人中心</span>
+				</a>
+        </nav>
+
+    </div>
+
+    <script src="libs/vue.min.js"></script>
+    <script src="mui/js/mui.min.js"></script>
+    <script src="mui/js/mui.pullToRefresh.js"></script>
+    <script src="mui/js/mui.pullToRefresh.material.js"></script>
+    <script>
+        //
+        new Vue({
+            el: '#app',
+            data: {
+                bShow: false,
+                aTypes: ['全部彩种', '双色球', '竞猜篮球', '山东11选5'],
+            },
+            methods: {
+                toggleLayer: function() {
+                    this.bShow = !this.bShow
+                },
+                selectType: function(e) {}
+            }
+        })
+
+
+
+        mui.init();
+        (function($) {
+            //阻尼系数
+            var deceleration = mui.os.ios ? 0.003 : 0.0009;
+            $('.mui-scroll-wrapper').scroll({
+                bounce: false,
+                indicators: true, //是否显示滚动条
+                deceleration: deceleration
+            });
+            $.ready(function() {
+                //循环初始化所有下拉刷新，上拉加载。
+                $.each(document.querySelectorAll('.mui-slider-group .mui-scroll'), function(index, pullRefreshEl) {
+                    $(pullRefreshEl).pullToRefresh({
+                        down: {
+                            callback: function() {
+                                var self = this;
+                                setTimeout(function() {
+                                    var ul = self.element.querySelector('.mui-table-view');
+                                    ul.insertBefore(createFragment(ul, index, 10, true), ul.firstChild);
+                                    self.endPullDownToRefresh();
+                                }, 1000);
+                            }
+                        },
+                        up: {
+                            callback: function() {
+                                var self = this;
+                                setTimeout(function() {
+                                    var ul = self.element.querySelector('.mui-table-view');
+                                    ul.appendChild(createFragment(ul, index, 5));
+                                    self.endPullUpToRefresh();
+                                }, 1000);
+                            }
+                        }
+                    });
+                });
+                var createFragment = function(ul, index, count, reverse) {
+                    var length = ul.querySelectorAll('li').length;
+                    var fragment = document.createDocumentFragment();
+                    var li;
+                    for (var i = 0; i < count; i++) {
+                        li = document.createElement('li');
+                        li.className = 'mui-table-view-cell';
+                        li.innerHTML = '第' + (index + 1) + '个选项卡子项-' + (length + (reverse ? (count - i) : (i + 1)));
+                        fragment.appendChild(li);
+                    }
+                    return fragment;
+                };
+            });
+        })(mui);
+
+        // 动态计算#slider距离顶部的距离
+        function dynamicTop() {
+            if (document.getElementById('hint') !== null) {
+                document.getElementById('slider').style.top =
+                    parseInt(document.getElementById('hint').offsetHeight) +
+                    parseInt(document.getElementById('bar').offsetHeight) + 'px'
+                return
+            }
+            document.getElementById('slider').style.top = parseInt(document.getElementById('bar').offsetHeight) + 'px'
         }
-    }
-		</script>-->
-	</body>
+        dynamicTop()
+        window.onorientationchange = window.onresize = function() {
+            resize()
+            dynamicTop()
+        }
+    </script>
+</body>
 
 </html>

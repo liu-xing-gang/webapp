@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../mui/css/mui.min.css" />
+    <link rel="stylesheet" href="../../app.css" />
+    <link rel="stylesheet" href="person.css" />
+    <script src="../../app.js"></script>
+    <style>
+        html.body{
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="mui-bar mui-bar-nav">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <h1 class="mui-title">跟单设置</h1>
+        <a class="mui-icon mui-pull-right history" id="r-e-record">说明</a>
+    </header>
+    <div class="mui-content">
+        <div class="bg-white radios-row borb">
+            <span class="p-txt-title fix-w">加入全网跟单</span>
+            <div class="switch fr mui-switch mui-switch-green mui-switch-mini mui-active" id="btn-save-setting">
+                <div class="mui-switch-handle"></div>
+            </div>
+        </div>
+
+        <div class="bg-white table radios-row borb">
+            <div class="table-cell">
+                <div class=" mui-radio mui-left">
+                    <label>命中率前三十的方案</label>
+                    <input name="radio1" type="radio" checked>
+                </div>
+
+            </div>
+            <div class="table-cell">
+                <div class=" mui-radio mui-left">
+                    <label>命中率前三十的方案</label>
+                    <input name="radio1" type="radio" checked>
+                </div>
+            </div>
+        </div>
+        <div class="radios-row">
+            <div class="radios-explain">*加入全网跟单后，会自动获取全网前三十的跟单方案供彩民投注。</div>
+        </div>
+        <div class="bg-white radios-row borb">
+            <span class="p-txt-title fix-w">开启并加入全网榜单</span>
+            <div class="switch fr mui-switch mui-switch-green mui-switch-mini mui-active" id="btn-save-setting">
+                <div class="mui-switch-handle"></div>
+            </div>
+        </div>
+        <div class="radios-row">
+            <div class="radios-explain">*开启后，将展示全网排行前三十的大神。</div>
+        </div>
+    </div>
+
+    <script src="../../mui/js/mui.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>彩种管理</title>
+    <link rel="stylesheet" href="../../mui/css/mui.min.css" />
+    <link rel="stylesheet" href="../../app.css" />
+    <link rel="stylesheet" href="person.css" />
+    <script src="../../app.js"></script>
+</head>
+
+<body>
+    <div id="p-info">
+        <header class="mui-bar mui-bar-nav">
+            <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+            <h1 class="mui-title">彩种管理</h1>
+        </header>
+        <div class="mui-content">
+            <div class="note">
+                进入彩种设置，可以帮忙让其他店铺帮忙出票哦
+            </div>
+            <ul class="mui-table-view">
+                <li class="mui-table-view-cell" v-for="item in arrTypes">
+                    <a class="mui-navigate-right">
+                        <span class="p-txt-title fix-w"><i v-text="item.name"></i> <i v-text="item.status"></i></span>
+                        <span class="btn-toggle">设置</span>
+					</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script src="../../libs/vue.min.js"></script>
+    <script>
+        new Vue({
+            el: '#p-info',
+            data: {
+                arrTypes: [{
+                        name: '竞彩足球',
+                        status: '开'
+                    }, {
+                        name: '竞彩篮球',
+                        status: '开'
+                    }, {
+                        name: '冠亚军',
+                        status: '开'
+                    },
+                    {
+                        name: '七乐彩',
+                        status: '开'
+                    }, {
+                        name: '福彩3D',
+                        status: '开'
+                    }, {
+                        name: '双色球',
+                        status: '开'
+                    },
+                    {
+                        name: '吉林快3',
+                        status: '开'
+                    }, {
+                        name: '超级大乐透',
+                        status: '开'
+                    }, {
+                        name: '排列三',
+                        status: '开'
+                    },
+                    {
+                        name: '胜负彩',
+                        status: '开'
+                    }, {
+                        name: '任选九',
+                        status: '开'
+                    }
+                ]
+            }
+        })
+    </script>
+
+</body>
+
+</html>

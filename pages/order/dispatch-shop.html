@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="../../mui/css/mui.min.css">
+    <link rel="stylesheet" href="../../mui/css/mui.picker.min.css">
+    <link rel="stylesheet" href="../../app.css" />
+    <script src="../../app.js"></script>
+    <style>
+        html,
+        body {
+            background-color: #fff;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="app">
+        <header class="mui-bar mui-bar-nav" id="bar">
+            <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+            <h1 class="mui-title">派单店铺</h1>
+        </header>
+        <section class="mui-content">
+            <div class="bg-white">
+                <ul class="tab">
+                    <li class="table tab-h">
+                        <div v-for="item in data" :class="item.active == true ? 'table-cell active' : 'table-cell'" @click="tabChange(item)">
+                            <span v-text="item.name"></span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="container bg-y padd24 color-y font-y">
+                同意后您将收到该店铺的合作订单
+            </div>
+            <div class="container bg-white">
+
+                <div class="tab-main">
+
+                    <div v-for="(item, index) in data">
+                        <div v-if="item.active">
+                                <div class="empty paddt160" v-if="item.active">
+                                        <!-- <div class="empty-box">
+                                            <img src="../../images/no-bill.png" alt="" class="img-responsive" />
+                                        </div> -->
+                                        <div class="empty-txt">
+                                            {{ index }} 暂时没有合作邀请~(⊙o⊙)！
+                                        </div>
+                                    </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+    </div>
+    <script src="../../libs/vue.min.js"></script>
+    <script src="../../mui/js/mui.min.js"></script>
+    <script src="../../mui/js/mui.picker.min.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                data: [{
+                        name: '已合作'
+                    },
+                    {
+                        name: '合作邀请'
+                    },
+                ],
+                show: true
+            },
+            mounted: function() {
+
+                // 添加选项卡切换状态
+                this.data.forEach((o, i) => {
+                    if (i === 0) {
+                        this.$set(o, 'active', true)
+                    } else {
+                        this.$set(o, 'active', false)
+                    }
+                })
+            },
+            methods: {
+                tabChange(tar) {
+                    this.data.forEach((o, i) => {
+                        o.active = false
+                    })
+                    tar.active = true
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

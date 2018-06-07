@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="../../mui/css/mui.min.css">
+    <link rel="stylesheet" href="../../app.css" />
+    <link rel="stylesheet" href="order.css" />
+    <script src="../../app.js"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        <header class="mui-bar mui-bar-nav">
+            <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+            <h1 class="mui-title">跟单方案查询</h1>
+            <a class="mui-icon mui-pull-right" id="btn-filter"><img src="../../images/iocn-filter.png" alt="" class="img-responsive"></a>
+        </header>
+        <main class="mui-content">
+            <ul class="documentary">
+                <!-- <li>
+                    <div class="d-row">
+                        <span class="d-name">竞彩足球 <i>让球胜平负</i></span>
+                        <span class="d-time">2018-05-22 15:23:47</span>
+                    </div>
+                    <div class="d-row">
+                        <span class="d-status">进行中</span>
+                        <span class="d-sum">方案总金额: <i>20.00元</i></span>
+                    </div>
+                </li> -->
+                <li v-for="item in arrMatches">
+                    <div class="d-row">
+                        <span class="d-name"><i v-text="item.name"></i> <i class="item.type"></i></span>
+                        <span class="d-time" v-text="item.time"></span>
+                    </div>
+                    <div class="d-row">
+                        <span class="d-status" v-text="item.status"></span>
+                        <span class="d-sum">方案总金额: <i v-text="item.sum"></i></span>
+                    </div>
+                </li>
+            </ul>
+        </main>
+    </div>
+    <script src="../../libs/vue.min.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                arrMatches: [{
+                        name: '竞猜足球',
+                        type: '让球胜平负',
+                        time: '2018-05-22 15:23:47',
+                        status: '进行中',
+                        sum: '20.00'
+                    },
+                    {
+                        name: '竞猜足球2',
+                        type: '胜平负',
+                        time: '2018-05-22 15:23:47',
+                        status: '进行中',
+                        sum: '20.00'
+                    },
+                    {
+                        name: '竞猜足球3',
+                        type: '混合',
+                        time: '2018-05-22 15:23:47',
+                        status: '进行中',
+                        sum: '20.00'
+                    },
+                ]
+            }
+        })
+    </script>
+</body>
+
+</html>

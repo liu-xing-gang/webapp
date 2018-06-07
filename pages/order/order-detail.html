@@ -1,92 +1,114 @@
 <!DOCTYPE html>
 <html>
 
-	<head>
-		<meta charset="utf-8">
-		<title></title>
-		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="../../mui/css/mui.min.css">
+    <link rel="stylesheet" href="../../app.css" />
+    <link rel="stylesheet" href="order.css" />
+    <script src="../../app.js"></script>
+    <style>
+        html,
+        body {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
 
-		<link rel="stylesheet" href="../../mui/css/mui.min.css">
-		<link rel="stylesheet" href="../../app.css" />
-		<link rel="stylesheet" href="order.css" />
-		<script src="../../app.js"></script>
-		<style>
-			html,
-			body {
-				background-color: #f2f2f2;
-			}
-		</style>
-	</head>
+<body>
+    <header class="mui-bar mui-bar-nav" id="bar">
+        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+        <h1 class="mui-title">方案详情</h1>
+    </header>
+    <section class="main" id="order-detail">
 
-	<body>
-		<header class="mui-bar mui-bar-nav" id="bar">
-			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-			<h1 class="mui-title">方案详情</h1>
-		</header>
-		<section class="main" id="order-detail">
+        <div class="project">
+            <section class="p-item">
+                <div class="p-head">
+                    <span class="p-caption">跟单方案</span>
+                    <span class="p-date fr">2018-05-22 23:55:00</span>
+                </div>
+                <div class="week-arrange">
+                    <ul class="week">
+                        <li class="w-table">
+                            <div class="w-table-cell">
+                                <div class="timeline">周二 002 瑞典超 00:55截止</div>
+                                <div class="vs">厄勒布鲁（主）<i>vs</i> 卡尔玛（客）</div>
+                            </div>
+                            <div class="w-table-cell">
+                                <span class="result">让球主负</span>
+                            </div>
+                        </li>
+                        <li class="w-table">
+                            <div class="w-table-cell">
+                                <div class="timeline">周二 005 解放者杯 00:55截止</div>
+                                <div class="vs">克鲁塞罗（主）<i>vs</i> 竞技（客）</div>
+                            </div>
+                            <div class="w-table-cell">
+                                <span class="result">主胜</span>
+                            </div>
+                        </li>
+                        <li class="w-table special">
+                            <div class="w-table-cell">
+                                <span class="p-label">过关方式: </span>
+                                <span class="p-txt">2串1</span>
+                            </div>
+                            <div class="w-table-cell">
+                                <span class="p-label">佣金比例: </span>
+                                <span class="p-txt">6%</span>
+                            </div>
+                            <div class="w-table-cell">
+                                <span class="p-label">提佣金额: </span>
+                                <span class="p-txt">--</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section class="p-item">
+                <div class="p-head">
+                    <span class="p-caption">方案描述</span>
+                </div>
+                <div class="week-arrange">
+                    <div class="p-ad">
+                        精选2串1，2.85赔率，跟单今天必红单收米
+                    </div>
+                </div>
+            </section>
+            <section class="p-item">
+                <div class="p-head">
+                    <span class="p-caption">跟单详情</span>
+                    <span class="p-date fr">跟单人数 <i class="amount">16</i></span>
+                </div>
+                <div class="week-arrange">
+                    <table class="p-table">
+                        <thead>
+                            <tr>
+                                <td>用户名</td>
+                                <td>时间</td>
+                                <td>份数</td>
+                                <td>金额</td>
+                                <td>状态</td>
+                                <td>佣后奖金</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="6">
+                                    <div class="p-empty">暂无跟单</div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
 
-			<div class="project">
-				<section class="p-item">
-					<div class="p-head">
-						<span class="p-caption">跟单方案</span>
-						<span class="p-date fr">2018-05-22 23:55:00</span>
-					</div>
-					<div class="week-arrange">
-						<ul class="week">
-							<li class="w-table">
-								<div class="w-table-cell">
-									<div class="timeline">周二 瑞典超 00:55截止</div>
-									<div class="vs">厄勒布鲁（主）<i>vs</i> 卡尔玛（客）</div>
-								</div>
-								<div class="w-table-cell">
-									<span class="result">让球主负</span>
-								</div>
-							</li>
-							<li class="w-table">
-								<div class="w-table-cell">
-									<div class="timeline">周二 瑞典超 00:55截止</div>
-									<div class="vs">厄勒布鲁（主）<i>vs</i> 卡尔玛（客）</div>
-								</div>
-								<div class="w-table-cell">
-									<span class="result">让球主负</span>
-								</div>
-							</li>
-						</ul>
-					</div>
-				</section>
-				<section class="p-item">
-					<div class="p-head">
-						<span class="p-caption">方案描述</span>
-					</div>
-					<div class="week-arrange">
-						<div class="p-ad">
-							精选2串1，2.85赔率，跟单今天必红单收米
-						</div>
-					</div>
-				</section>
-				<section class="p-item">
-					<div class="p-head">
-						<span class="p-caption">跟单详情</span>
-						<span class="p-date fr">跟单人数 <i class="amount">16</i></span>
-					</div>
-					<div class="week-arrange">
-						<table>
-							<tr>
-								<td>用户名</td>
-								<td>时间</td>
-								<td>份数</td>
-								<td>金额</td>
-								<td>状态</td>
-								<td>佣后奖金</td>
-							</tr>
-						</table>
-					</div>
-				</section>
-			</div>
-
-		</section>
-	</body>
+    </section>
+</body>
 
 </html>
