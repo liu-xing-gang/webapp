@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>订单管理</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="../../mui/css/mui.min.css">
+    <link rel="stylesheet" href="../../mui/css/mui.picker.min.css">
+    <link rel="stylesheet" href="../../app.css" />
+    <link rel="stylesheet" href="order.css" />
+    <link rel="stylesheet" href="../../component/component.css">
+    
+    <script src="../../app.js"></script>
+    <style>
+        html,
+        body {
+            background-color: #f2f2f2;
+        }
+
+        .mui-bar~.mui-content .mui-fullscreen {
+            top: 44px;
+            height: auto;
+        }
+
+        .mui-pull-top-tips {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            margin-left: -25px;
+            width: 40px;
+            height: 40px;
+            border-radius: 100%;
+            z-index: 1;
+        }
+
+        .mui-bar~.mui-pull-top-tips {
+            top: 24px;
+        }
+
+        .mui-pull-top-wrapper {
+            width: 42px;
+            height: 42px;
+            display: block;
+            text-align: center;
+            background-color: #efeff4;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            background-clip: padding-box;
+            box-shadow: 0 4px 10px #bbb;
+            overflow: hidden;
+        }
+
+        .mui-pull-top-tips.mui-transitioning {
+            -webkit-transition-duration: 200ms;
+            transition-duration: 200ms;
+        }
+
+        .mui-pull-top-tips .mui-pull-loading {
+            /*-webkit-backface-visibility: hidden;
+				-webkit-transition-duration: 400ms;
+				transition-duration: 400ms;*/
+            margin: 0;
+        }
+
+        .mui-pull-top-wrapper .mui-icon,
+        .mui-pull-top-wrapper .mui-spinner {
+            margin-top: 7px;
+        }
+
+        .mui-pull-top-wrapper .mui-icon.mui-reverse {
+            /*-webkit-transform: rotate(180deg) translateZ(0);*/
+        }
+
+        .mui-pull-bottom-tips {
+            text-align: center;
+            background-color: #efeff4;
+            font-size: 15px;
+            line-height: 40px;
+            color: #777;
+        }
+
+        .mui-pull-top-canvas {
+            overflow: hidden;
+            background-color: #fafafa;
+            border-radius: 40px;
+            box-shadow: 0 4px 10px #bbb;
+            width: 40px;
+            height: 40px;
+            margin: 0 auto;
+        }
+
+        .mui-pull-top-canvas canvas {
+            width: 40px;
+        }
+
+        .mui-slider-indicator.mui-segmented-control {
+            background-color: #efeff4;
+        }
+
+        #slider .mui-segmented-control.mui-scroll-wrapper .mui-scroll {
+            height: 100%;
+            background-color: #fff;
+            border-bottom: 1px solid #f2f2f2;
+            width: 100%;
+        }
+
+        #slider .mui-segmented-control.mui-segmented-control-inverted .mui-control-item {
+            width: 33.333%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <header class="mui-bar mui-bar-nav" id="bar">
+            <a class="mui-icon mui-pull-left"></a>
+            <h1 class="mui-title">订单管理</h1>
+            <a class="mui-icon mui-pull-right" id="btn-filter" @click="toggleLayer">
+			<img src="../../images/iocn-filter.png" alt="" class="img-responsive">
+		</a>
+        </header>
+        <div :class="bShow == true ? 'layer-mask active' : 'layer-mask'" @click="toggleLayer" style="z-index: 10;"></div>
+        <div id="slider" class="mui-slider mui-fullscreen">
+            <div id="sliderSegmentedControl" class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+                <div class="mui-scroll" id="mui-scroll">
+                    <a class="mui-control-item mui-active" href="#item1mobile">
+						出票
+					</a>
+                    <a class="mui-control-item" href="#item2mobile">
+						合买
+					</a>
+                    <a class="mui-control-item" href="#item3mobile">
+						追号
+					</a>
+                </div>
+            </div>
+            <div class="mui-slider-group">
+                <div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
+                    <div class="mui-scroll">
+                        <ul class="mui-table-view">
+                            <li>
+                                <div class="o-empty">
+                                    <div class="o-empty-box"><img src="../../images/order-empty.png" alt="" class="img-responsive" /></div>
+                                    <div class="o-empty-txt">暂时没有用户订单哦~</div>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                </div>
+                <div id="item2mobile" class="mui-slider-item mui-control-content">
+
+                    <div class="mui-scroll">
+                        <ul class="mui-table-view">
+                            <li>
+                                <div class="o-empty">
+                                    <div class="o-empty-box"><img src="../../images/order-empty.png" alt="" class="img-responsive" /></div>
+                                    <div class="o-empty-txt">暂时没有用户订单哦~</div>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                </div>
+                <div id="item3mobile" class="mui-slider-item mui-control-content">
+
+                    <div class="mui-scroll">
+                        <ul class="mui-table-view">
+                            <li class="mui-table-view-cell">
+                                <a href="pages/order/documentary-query.html" class="media">
+                                    <section class="m-left fl flex-center">
+                                        <div class="m-center">
+                                            <div class="m-num">1</div>
+                                            <div>跟单人数</div>
+                                        </div>
+                                    </section>
+                                    <section class="m-main fr">
+                                        <section class="m-main-h">
+                                            <span class="m-main-title">竞彩足球</span>
+                                            <span class="m-main-title">混合</span>
+                                            <span class="m-main-title fr">小财神</span>
+                                        </section>
+
+                                        <section class="m-main-b">
+                                            <div class="m-main-item">
+                                                <div class="m-num-small">7<i>%</i></div>
+                                                <div>佣金比例</div>
+                                            </div>
+                                            <div class="m-main-item">
+                                                <div class="m-num-small">2</div>
+                                                <div>单倍金额</div>
+                                            </div>
+                                            <div class="m-main-item">
+                                                <div class="m-num-small color-1">1830</div>
+                                                <div>方案总金额</div>
+                                            </div>
+                                        </section>
+
+
+                                    </section>
+                                </a>
+                            </li>
+                            <li class="mui-table-view-cell">
+                                <a href="pages/order/documentary-query.html" class="media">
+                                    <section class="m-left fl flex-center">
+                                        <div class="m-center">
+                                            <div class="m-num">1</div>
+                                            <div>跟单人数</div>
+                                        </div>
+                                    </section>
+                                    <section class="m-main fr">
+                                        <section class="m-main-h">
+                                            <span class="m-main-title">竞彩足球</span>
+                                            <span class="m-main-title">混合</span>
+                                            <span class="m-main-title fr">小财神</span>
+                                        </section>
+
+                                        <section class="m-main-b">
+                                            <div class="m-main-item">
+                                                <div class="m-num-small">7<i>%</i></div>
+                                                <div>佣金比例</div>
+                                            </div>
+                                            <div class="m-main-item">
+                                                <div class="m-num-small">2</div>
+                                                <div>单倍金额</div>
+                                            </div>
+                                            <div class="m-main-item">
+                                                <div class="m-num-small color-1">1830</div>
+                                                <div>方案总金额</div>
+                                            </div>
+                                        </section>
+                                    </section>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <screen-layer :show="bShow"></screen-layer>
+    </div>
+    <script type="text/x-template" id="test">
+        <div :class="show == true ? 'screent-layer active' : 'screent-layer' ">
+            <div class="container">
+                <section class="chunk">
+                    <h1 class="h1">彩种选择{{show }}</h1>
+                    <div class="holder">
+                        <div class="holder-item"><a href="" class="option">全部彩种</a></div>
+                        <div class="holder-item"><a href="" class="option active">双色球</a></div>
+                        <div class="holder-item"><a href="" class="option">大乐透</a></div>
+                        <div class="holder-item"><a href="" class="option">山东11选5</a></div>
+                        <div class="holder-item"><a href="" class="option">广东11选5</a></div>
+                        <div class="holder-item"><a href="" class="option">吉林快3</a></div>
+                        <div class="clearfix"></div>
+                    </div>
+                </section>
+                <section class="chunk">
+                    <h1 class="h1">状态选择</h1>
+                    <div class="holder">
+                        <div class="holder-item"><a href="" class="option">全部状态</a></div>
+                        <div class="holder-item"><a href="" class="option active">进行中</a></div>
+                        <div class="holder-item"><a href="" class="option">已中奖</a></div>
+                        <div class="holder-item"><a href="" class="option">未中奖</a></div>
+                        <div class="clearfix"></div>
+                    </div>
+                </section>
+                <section class="chunk">
+                    <h1 class="h1">时间选择</h1>
+                    <div class="holder">
+                        <div class="time-select">
+                            <a class="time-all fl">全部</a>
+                            <div class="btn-time-group fl">
+                                <span class="btn fl" data-options='{"type":"date"}'>2018.06.08</span>
+                                <span class="btn fr" data-options='{"type":"date"}'>2018.06.08</span>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </section>
+                <div class="btn-confirm-group">
+                    <button class="btn-screen-layer btn-cancel">取消</button>
+                    <button class="btn-screen-layer btn-sure">确定</button>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </script>
+    <script src="../../libs/vue.min.js"></script>
+    <script src="../../component/component.js"></script>
+    <script src="../../mui/js/mui.min.js"></script>
+    <script src="../../mui/js/mui.pullToRefresh.js"></script>
+    <script src="../../mui/js/mui.pullToRefresh.material.js"></script>
+    <script src="../../mui/js/mui.picker.min.js"></script>
+
+    <script>
+        // 动态计算#slider距离顶部的距离
+        function dynamicTop() {
+            if (document.getElementById('hint') !== null) {
+                document.getElementById('slider').style.top =
+                    parseInt(document.getElementById('hint').offsetHeight) +
+                    parseInt(document.getElementById('bar').offsetHeight) + 'px'
+                return
+            }
+            document.getElementById('slider').style.top = parseInt(document.getElementById('bar').offsetHeight) + 'px'
+        }
+        dynamicTop()
+        window.onorientationchange = window.onresize = function() {
+            Ccp.Common.getInstance().init()
+            dynamicTop()
+        }
+
+        new Vue({
+            el: '#app',
+            data: {
+                bShow: false,
+            },
+            methods: {
+                toggleLayer: function() {
+                    this.bShow = !this.bShow
+                },
+                selectType: function(e) {}
+            },
+            mounted: function(){
+                (function($) {
+                    $.init();
+                    var result = $('#result')[0];
+                    var btns = $('.btn');
+                    btns.each(function(i, btn) {
+                        btn.addEventListener('tap', function() {
+                            var mask = mui.createMask();//callback为用户点击蒙版时自动执行的回调；
+                            mask.show();//显示遮罩
+                            
+                            var _self = this;
+                            
+                            if (_self.picker) {
+                                _self.picker.show(function(rs) {
+                                    // result.innerText = '选择结果: ' + rs.text;
+                                    _self.innerText = rs.text;
+                                    _self.picker.dispose();
+                                    _self.picker = null;
+                                    mask.close();//关闭遮罩
+                                });
+                            } else {
+                                var optionsJson = this.getAttribute('data-options') || '{}';
+                                var options = JSON.parse(optionsJson);
+                                var id = this.getAttribute('id');
+                                /*
+                                 * 首次显示时实例化组件
+                                 * 示例为了简洁，将 options 放在了按钮的 dom 上
+                                 * 也可以直接通过代码声明 optinos 用于实例化 DtPicker
+                                 */
+                                _self.picker = new $.DtPicker(options);
+
+                               console.log(_self.picker)
+
+
+                                _self.picker.show(function(rs) {
+                                    /*
+                                     * rs.value 拼合后的 value
+                                     * rs.text 拼合后的 text
+                                     * rs.y 年，可以通过 rs.y.vaue 和 rs.y.text 获取值和文本
+                                     * rs.m 月，用法同年
+                                     * rs.d 日，用法同年
+                                     * rs.h 时，用法同年
+                                     * rs.i 分（minutes 的第二个字母），用法同年
+                                     */
+                                    // result.innerText = '选择结果: ' + rs.text;
+                                    _self.innerText = rs.text;
+                                    /* 
+                                     * 返回 false 可以阻止选择框的关闭
+                                     * return false;
+                                     */
+                                    /*
+                                     * 释放组件资源，释放后将将不能再操作组件
+                                     * 通常情况下，不需要示放组件，new DtPicker(options) 后，可以一直使用。
+                                     * 当前示例，因为内容较多，如不进行资原释放，在某些设备上会较慢。
+                                     * 所以每次用完便立即调用 dispose 进行释放，下次用时再创建新实例。
+                                     */
+                                    _self.picker.dispose();
+                                    _self.picker = null;
+                                    mask.close();//关闭遮罩
+                                });
+                            }
+
+                        }, false);
+                    });
+                })(mui);
+            }
+        })
+
+        mui.init({
+            gestureConfig: {
+                doubletap: true
+            },
+        });
+        (function($) {
+            //阻尼系数
+            var deceleration = mui.os.ios ? 0.003 : 0.0009;
+            $('.mui-scroll-wrapper').scroll({
+                bounce: false,
+                indicators: true, //是否显示滚动条
+                deceleration: deceleration
+            });
+            $.ready(function() {
+                //循环初始化所有下拉刷新，上拉加载。
+                $.each(document.querySelectorAll('.mui-slider-group .mui-scroll'), function(index, pullRefreshEl) {
+                    $(pullRefreshEl).pullToRefresh({
+                        down: {
+                            callback: function() {
+                                var self = this;
+                                setTimeout(function() {
+                                    var ul = self.element.querySelector('.mui-table-view');
+                                    ul.insertBefore(createFragment(ul, index, 10, true), ul.firstChild);
+                                    self.endPullDownToRefresh();
+                                }, 1000);
+                            }
+                        },
+                        up: {
+                            callback: function() {
+                                var self = this;
+                                setTimeout(function() {
+                                    var ul = self.element.querySelector('.mui-table-view');
+                                    ul.appendChild(createFragment(ul, index, 5));
+                                    self.endPullUpToRefresh();
+                                }, 1000);
+                            }
+                        }
+                    });
+                });
+                var createFragment = function(ul, index, count, reverse) {
+                    var length = ul.querySelectorAll('li').length;
+                    var fragment = document.createDocumentFragment();
+                    var li;
+                    for (var i = 0; i < count; i++) {
+                        li = document.createElement('li');
+                        li.className = 'mui-table-view-cell';
+                        li.innerHTML = '第' + (index + 1) + '个选项卡子项-' + (length + (reverse ? (count - i) : (i + 1)));
+                        fragment.appendChild(li);
+                    }
+                    return fragment;
+                };
+            });
+        })(mui);
+
+        
+
+
+        
+    </script>
+</body>
+
+</html>

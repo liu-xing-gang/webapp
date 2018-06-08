@@ -4,8 +4,11 @@ body {
     background-color: #f2f2f2;
 }
 
+#person{
+    padding-bottom: 1.24rem;
+}
+
 #person .banner {
-    /*padding: 0 .2rem;*/
     background: url(../../images/banner-user.jpg) no-repeat;
     background-size: cover;
 }
@@ -53,7 +56,11 @@ body {
     background: rgba(0, 0, 0, .5) url(../../images/icon-welfare-task.png) no-repeat .1rem center;
     background-size: .4rem .4rem;
     border-radius: 0.4rem 0 0 .4rem;
-    ;
+    color: #fff;
+}
+
+#person .user-box li.welfare-task a{
+    color: inherit;
 }
 
 #person .shop-name {
@@ -106,15 +113,15 @@ body {
     font-size: .32rem;
 }
 
-#person .links a {
+#person .links a, #person .links .mui-navigate-right{
     display: block;
     margin: 0;
-    padding: 0 .24rem;
+    padding: .28rem .24rem;
     color: #303030;
 }
 
 #person .mui-table-view-cell {
-    padding: .28rem 0;
+    padding: 0;
 }
 
 #person .mui-table-view-cell>a:not(.mui-btn) {
@@ -307,6 +314,10 @@ body {
     font-size: .3rem;
 }
 
+#p-info .mui-table-view-cell .mui-navigate-right{
+    font-size: .3rem;
+}
+
 #p-info .mui-table-view-cell:after {
     left: 0;
 }
@@ -463,31 +474,34 @@ body {
 }
 
 #identify .mui-input-row input::-ms-input-placeholder {
-    font-size: .24rem;
+    font-size: .28rem;
     color: #ccc;
+    vertical-align: middle;
+    height: auto;
 }
 
 #identify .mui-input-row input::-moz-input-placeholder {
-    font-size: .24rem;
+    font-size: .28rem;
     color: #ccc;
+    vertical-align: middle;
+    height: auto;
 }
 
 #identify .mui-input-row input::-webkit-input-placeholder {
-    font-size: .24rem;
+    font-size: .28rem;
     color: #ccc;
-}
-
-#identify .mui-input-row input::input-placeholder {
-    font-size: .24rem;
-    color: #ccc;
-}
+    vertical-align: middle;
+    height: auto;
+} 
 
 #identify .mui-input-row input {
     float: none;
+    margin-left: .24rem;
     padding: 0;
+    font-size: .28rem;
+    color: #666;
     vertical-align: middle;
-    font-size: .24rem;
-    color: #303030;
+    height: auto;
 }
 
 #identify .mui-input-group .mui-input-row {
@@ -529,6 +543,7 @@ body {
     padding: .38rem .48rem;
     font-size: .3rem;
     text-align: center;
+    color: #666;
 }
 
 #identify .i-hint::before {
@@ -663,6 +678,7 @@ body {
 
 #notice .notice-content {
     margin: .24rem 0;
+    font-size: .28rem;
 }
 
 #notice .notice-content textarea {
@@ -731,7 +747,7 @@ body {
 }
 
 #red-envelope .txt-1 {
-    margin: .3rem 0 .15rem;
+    margin: .16rem 0 .16rem;
     font-size: .28rem;
     color: #333;
 }
@@ -741,11 +757,15 @@ body {
     color: #808080;
 }
 
+#red-envelope .re-info{
+    font-size: .28rem;
+}
+
 #red-envelope .re-info textarea {
     border: none;
     border-radius: 0;
     padding: .3rem .24rem;
-    height: 1.64rem;
+    height: 1.6rem;
 }
 
 #red-envelope .re-row {
@@ -760,7 +780,7 @@ body {
     color: #808080;
 }
 
-#red-envelope .re-action {
+/* #red-envelope .re-action {
     margin-top: .5rem;
     text-align: center;
 }
@@ -783,15 +803,15 @@ body {
     width: 100%;
     height: 1px;
     background-color: #4287df;
-}
+} */
 
 .action{
-    margin-top: .5rem;
+    margin-top: .4rem;
     text-align: center;
 }
 
 .action .btn-block {
-    margin-bottom: .68rem;
+    margin-bottom: .4rem;
 }
 
 .action .rule {
@@ -923,6 +943,7 @@ body {
 }
 
 .radios-row .radios-explain{
-    font-size: .28rem; text-align: justify;
+    font-size: .28rem; text-align: justify; line-height: 1.4;
     color: #666;
 }
+

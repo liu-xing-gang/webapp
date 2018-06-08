@@ -18,21 +18,20 @@
         <div class="banner">
             <ul class="user-box">
                 <li>
-                    <a class="btn-user btn-user-edit">
-							<img src="../../images/btn-edit.png" alt="" class="img-responsive" />
+                    <a href="person-info.html" class="btn-user btn-user-edit">
+						<img src="../../images/btn-edit.png" alt="" class="img-responsive" />
 					</a>
-                    <a class="btn-user btn-user-info">
-							<img src="../../images/btn-info.png" alt="" class="img-responsive" />
+                    <a href="news.html" class="btn-user btn-user-info">
+						<img src="../../images/btn-info.png" alt="" class="img-responsive" />
 					</a>
                     <div class="clearfix"></div>
-
                 </li>
                 <li>
                     <div class="avatar" onclick="window.location.href='person-info.html'">
                         <img src="../../images/avatar-demo.png" alt="" class="img-responsive" />
                     </div>
                     <h2 class="shop-name">欧乐旗舰店</h2>
-                    <button class="btn-auth">立即认证</button>
+                    <button class="btn-auth" onclick="window.location.href='../auth/step-1.html'">立即认证</button>
                 </li>
                 <li>
                     <div class="half bor">
@@ -46,56 +45,56 @@
                     <div class="clearfix"></div>
                 </li>
                 <li class="welfare-task">
-                    福利任务
+                    <a href="welfare-task.html">福利任务</a>
                 </li>
             </ul>
         </div>
         <div class="links">
             <ul class="mui-table-view mui-table-view-chevron">
                 <li class="mui-table-view-cell">
-                    <a href="#notifications" class="mui-navigate-right">
+                    <a href="../order/orders.html" class="mui-navigate-right">
 						<span class="span-l icon-draw-bill">未出票</sapn>
 						<span class="span-r">0单未出</span>
 					</a>
                 </li>
                 <li class="mui-table-view-cell">
-                    <a href="#privacy" class="mui-navigate-right">
+                    <a href="full-lottery.html" class="mui-navigate-right">
 						<span class="span-l icon-award">派奖</span>
 						<span class="span-r">0单未派奖</span>
 					</a>
                 </li>
                 <li class="mui-table-view-cell">
-                    <a href="#general" class="mui-navigate-right">
+                    <a href="cooperate-order-award.html" class="mui-navigate-right">
 						<span class="span-l icon-cooperate-order2">合作订单派奖</span>
 						<span class="span-r">0单未派奖</span>
 					</a>
                 </li>
-                <li class="mui-table-view-cell">
-                    <a href="#general" class="mui-navigate-right">
+                <li class="mui-table-view-cell"  @click="isAuthed">
+                    <div class="mui-navigate-right">
 						<span class="span-l icon-cash">提现</span>
 						<span class="span-r txt-color1">可提余额：0.00</span>
-					</a>
+					</div>
                 </li>
                 <li class="mui-table-view-cell">
-                    <a href="#general" class="mui-navigate-right">
+                    <a href="person-auth.html" class="mui-navigate-right">
 						<span class="span-l icon-recharge">充值</span>
 						<span class="span-r txt-color1">账户余额：0.00</span>
 					</a>
                 </li>
                 <li class="mui-table-view-cell">
-                    <a href="#general" class="mui-navigate-right">
+                    <a href="send-message.html" class="mui-navigate-right">
 						<span class="span-l icon-send">发送消息</span>
 					</a>
                 </li>
             </ul>
             <ul class="mui-table-view mui-table-view-chevron">
                 <li class="mui-table-view-cell">
-                    <a href="#notifications" class="mui-navigate-right">
+                    <a href="red-envelope.html" class="mui-navigate-right">
 						<span class="span-l icon-welfare">红包福利</span>
 					</a>
                 </li>
                 <li class="mui-table-view-cell">
-                    <a href="#privacy" class="mui-navigate-right">
+                    <a href="person-assistant.html" class="mui-navigate-right">
 						<span class="span-l icon-assistant">我的推广助手</span>
 						<span class="span-r">下载扫码</span>
 					</a>
@@ -112,30 +111,30 @@
 					</a>
                 </li>
                 <li class="mui-table-view-cell">
-                    <a href="#general" class="mui-navigate-right">
+                    <a href="lottery-types.html" class="mui-navigate-right">
 						<span class="span-l icon-species">彩种管理</span>
 						<span class="span-r">邀请其他店主帮我出票</span>
 					</a>
                 </li>
                 <li class="mui-table-view-cell">
-                    <a href="#general" class="mui-navigate-right">
+                    <a href="../order/dispatch-shop.html" class="mui-navigate-right">
 						<span class="span-l icon-store">派单店铺</span>
 					</a>
                 </li>
             </ul>
             <ul class="mui-table-view mui-table-view-chevron">
                 <li class="mui-table-view-cell">
-                    <a href="#notifications" class="mui-navigate-right">
+                    <a href="../order/order-query.html" class="mui-navigate-right">
 						<span class="span-l icon-order-select">订单查询</span>
 					</a>
                 </li>
                 <li class="mui-table-view-cell">
-                    <a href="#privacy" class="mui-navigate-right">
+                    <a href="../order/documentary-query.html" class="mui-navigate-right">
 						<span class="span-l icon-documentary">跟单方案查询</span>
 					</a>
                 </li>
                 <li class="mui-table-view-cell">
-                    <a href="#general" class="mui-navigate-right">
+                    <a href="../order/robbing-order.html" class="mui-navigate-right">
 						<span class="span-l icon-cooperate-order1">合作订单查询</span>
 					</a>
                 </li>
@@ -145,24 +144,58 @@
 					</a>
                 </li>
                 <li class="mui-table-view-cell">
-                    <a href="#general" class="mui-navigate-right">
+                    <a href="account-detail.html" class="mui-navigate-right">
 						<span class="span-l icon-account">账户明细</span>
 					</a>
                 </li>
                 <li class="mui-table-view-cell">
-                    <a href="#general" class="mui-navigate-right">
+                    <a href="other-setting.html" class="mui-navigate-right">
 						<span class="span-l icon-setting">设置</span>
 					</a>
                 </li>
             </ul>
         </div>
-
+        <nav class="mui-bar mui-bar-tab" id="nav-bar">
+                <a id="defaultTab" class="mui-tab-item " href="../../index.html">
+                        <span class="mui-icon icon-order"></span>
+                        <span class="mui-tab-label">订单管理</span>
+                    </a>
+                <a class="mui-tab-item " href="../user/user-manage.html">
+                        <span class="mui-icon icon-user"></span>
+                        <span class="mui-tab-label">用户管理</span>
+                    </a>
+                <a class="mui-tab-item" href="../data/data-statistics.html">
+                        <span class="mui-icon icon-data"></span>
+                        <span class="mui-tab-label">数据统计</span>
+                    </a>
+                <a class="mui-tab-item mui-active" href="../mine/person-center.html">
+                        <span class="mui-icon icon-mine"></span>
+                        <span class="mui-tab-label">个人中心</span>
+                    </a>
+            </nav>
     </div>
-
+    <script src="../../libs/vue.min.js"></script>
+    <script src="../../mui/js/mui.min.js"></script>
     <script>
         if (isiOSApp()) {
             window.webkit.messageHandlers.nav.postMessage('trans');
         }
+
+
+        new Vue({
+            el: '#person',
+            data: {
+                data: []
+            },
+            mounted: function(){
+
+            },
+            methods: {
+                isAuthed: function(){
+                    mui.toast('请进行实名认证',{ duration:'500', type:'div' }) 
+                }
+            }
+        })
     </script>
 
 </html>

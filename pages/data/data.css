@@ -83,13 +83,13 @@ html,body{
 }
 
 #data .percent-cont{
-	padding: .3rem 0;
+	padding: .3rem 0 .1rem;
 	font-size: .28rem;
 	color: #303030;
 }
 
 #data .btn-wrap{
-	padding: .1rem 0 .4rem;
+	padding: .1rem 0 .24rem;
 	background-color: #fff;
 }
 

@@ -19,82 +19,130 @@
 </head>
 
 <body>
-    <header class="mui-bar mui-bar-nav">
-        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-        <h1 class="mui-title">认证</h1>
-	</header>
-	<div class="layer-mask active" style="z-index: 11;"></div>
-	<div class="important">
-		<h1 class="i-row i-title">重要通知</h1>
-		<section class="i-row i-txt text-justify">
-			<div>
-				您的资料已成功提交，我们将于一个工作日内电话通知您审核结果。
-			</div>
-			<div>
-				请添加官方客服微信 “xxxxxxx”,专属客服为您提供服务，并领取店主福利和海报
-			</div>
-		</section>
-		<section class="i-row i-foot txt-center">
-			<a href="">去我的店铺</a>
-		</section>
-	</div>
-    <form method="post">
-        <div class="auth">
-            <div class="uploads">
-                <div class="uploads-hint">
-                    为了给您和彩民持续提供更安全便捷的服务，请您认真上传认证资料，我们会在24小时内电话通知您审核结果。
+    <div id="app">
+        <header class="mui-bar mui-bar-nav">
+            <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+            <h1 class="mui-title">认证</h1>
+        </header>
+        <div :class="show == true ? 'layer-mask active' : 'layer-mask'" style="z-index: 11;"></div>
+        <div :class="show == true ? 'important active' : 'important'">
+            <h1 class="i-row i-title">重要通知</h1>
+            <section class="i-row i-txt text-justify">
+                <div>
+                    您的资料已成功提交，我们将于一个工作日内电话通知您审核结果。
                 </div>
-                <ul class="uploads-images">
-                    <li>
-                        <div class="uploads-img-box active">
-                            <img src="../../images/auth-name.jpg" alt="" />
-                        </div>
-                        <div class="uploads-img-text">上传销售许可证</div>
-                    </li>
-                    <li>
-                        <div class="uploads-img-box active">
-                            <img src="../../images/auth-demo-1.png" alt="" />
-                        </div>
-                        <div class="uploads-img-text">示例1</div>
-                    </li>
-                    <li>
-                        <div class="uploads-img-box">
-                            <img src="" alt="" />
-                        </div>
-                        <div class="uploads-img-text">手持身份证</div>
-                    </li>
-                    <li>
-                        <div class="uploads-img-box active">
-                            <img src="../../images/auth-demo-2.png" alt="" />
-                        </div>
-                        <div class="uploads-img-text">示例2</div>
-                    </li>
-                    <li>
-                        <div class="uploads-img-box">
-                            <img src="" alt="" />
-                        </div>
-                        <div class="uploads-img-text">彩店照片</div>
-                    </li>
-                    <li>
-                        <div class="uploads-img-box active">
-                            <img src="../../images/auth-demo-3.png" alt="" />
-                        </div>
-                        <div class="uploads-img-text">示例3</div>
-                    </li>
-                    <div class="clearfix"></div>
-                </ul>
-            </div>
+                <div>
+                    请添加官方客服微信 “xxxxxxx”,专属客服为您提供服务，并领取店主福利和海报
+                </div>
+            </section>
+            <section class="i-row i-foot txt-center">
+                <a href="../mine/person-center.html">去我的店铺</a>
+            </section>
         </div>
-        <button type="button" class="btn-block" onclick="window.location.href='../../index.html'">下一步</button>
-    </form>
+        <form method="post">
+            <div class="auth">
+                <div class="uploads">
+                    <div class="uploads-hint">
+                        为了给您和彩民持续提供更安全便捷的服务，请您认真上传认证资料，我们会在24小时内电话通知您审核结果。
+                    </div>
+                    <ul class="uploads-images">
+                        <li>
+                            <div class="uploads-img-box active">
+                                <img src="" class="preview_img_a" alt="" />
+                            </div>
+                            <div class="uploads-img-text">上传销售许可证</div>
+                            <input class="file_input fileA" type="file" onchange="upload('.fileA', '.preview_img_a', '.id-card-url');" accept="image/gif,image/jpeg,image/jpg,image/png" />
+                        </li>
+                        <li>
+                            <div class="uploads-img-box active">
+                                <img src="../../images/auth-demo-1.png" alt="" />
+                            </div>
+                            <div class="uploads-img-text">示例1</div>
+                        </li>
+                        <li>
 
+                            <div class="uploads-img-box active">
+                                <img src="" class="preview_img_b" alt="" />
+                            </div>
+                            <div class="uploads-img-text">手持身份证</div>
+                            <input class="file_input fileA" type="file" onchange="upload('.fileA', '.preview_img_b', '.id-card-url');" accept="image/gif,image/jpeg,image/jpg,image/png" />
 
+                        </li>
+                        <li>
+                            <div class="uploads-img-box active">
+                                <img src="../../images/auth-demo-2.png" alt="" />
+                            </div>
+                            <div class="uploads-img-text">示例2</div>
+                        </li>
+                        <li>
+                            <div class="uploads-img-box active">
+                                <img src="" class="preview_img_c" alt="" />
+                            </div>
+                            <div class="uploads-img-text">彩店照片</div>
+                            <input class="file_input fileA" type="file" onchange="upload('.fileA', '.preview_img_c', '.id-card-url');" accept="image/gif,image/jpeg,image/jpg,image/png" />
+                        </li>
+                        <li>
+                            <div class="uploads-img-box active">
+                                <img src="../../images/auth-demo-3.png" alt="" />
+                            </div>
+                            <div class="uploads-img-text">示例3</div>
+                        </li>
+                        <div class="clearfix"></div>
+                    </ul>
+                </div>
+            </div>
+            <button type="button" class="btn-block" @click="showLayer">下一步</button>
+        </form>
+
+    </div>
     <script src="../../mui/js/mui.min.js"></script>
     <script src="../../libs/vue.min.js"></script>
     <script>
         if (isiOSApp()) {
             window.webkit.messageHandlers.nav.postMessage('trans');
         }
+
+        (function() {
+            try {
+                if (mui.os.android) {
+                    // $("selector").find("input[type='file']").attr("capture","camera");
+                } else {
+                    // $("selector").find("input[type='file']").removeAttr("capture");
+                }
+            } catch (e) {
+                console.log(e.message)
+            }
+        })()
+
+        // 上传
+        var upload = function(c, d, e) {
+            "use strict";
+            var $c = document.querySelector(c),
+                $d = document.querySelector(d),
+                $e = document.querySelector(e),
+                file = $c.files[0],
+                reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = function(e) {
+                $d.setAttribute("src", e.target.result);
+
+                var str = $($e).val()
+                str += ' ' + file.name
+                $($e).val(str)
+            };
+        };
+
+        new Vue({
+            el: '#app',
+            data: {
+                show: false
+            },
+            methods: {
+                showLayer: function() {
+                    this.show = true
+                }
+            }
+        })
     </script>
 </body>
 

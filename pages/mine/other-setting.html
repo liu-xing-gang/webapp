@@ -56,7 +56,20 @@
         </div>
         <div class="signout-wrap">
             <button class="btn-block btn-signout">退出当前账号</button>
-        </div>
+		</div>
+		<script src="../../libs/vue.min.js"></script>
 		<script src="../../mui/js/mui.min.js"></script>
+		<script>
+			document.getElementsByClassName("btn-signout")[0].addEventListener('tap', function() {
+				var btnArray = ['否', '是'];
+				mui.confirm('确认要退出吗？', '', btnArray, function(e) {
+					if (e.index == 1) {
+						mui.toast('退出成功');
+						window.location.href="../login/login.html"
+					} else {
+					}
+				})
+			});
+		</script>
 </body>
 </html>

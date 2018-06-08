@@ -19,7 +19,7 @@
     <header class="mui-bar mui-bar-nav">
         <h1 id="title" class="mui-title">数据统计</h1>
     </header>
-    <div class="main" id="data">
+    <main class="main" id="data">
         <section class="unit">
 
             <div class="unit-head">
@@ -41,14 +41,12 @@
                         <div class="percent-tit">本月注册</div>
                         <div class="percent-cont">0人</div>
                     </div>
-
                     <div class="clearfix"></div>
                 </div>
             </div>
             <div class="btn-wrap">
-                <a href="" class="btn-redirect">详情 ></a>
+                <a href="../user/user-data.html" class="btn-redirect">详情 ></a>
             </div>
-
         </section>
         <section class="unit">
             <div class="unit-head">
@@ -84,12 +82,28 @@
                 </div>
             </div>
             <div class="btn-wrap">
-                <a href="" class="btn-redirect">详情 ></a>
+                <a href="user-data.html" class="btn-redirect">详情 ></a>
             </div>
-
         </section>
-
-	</div>
+    </main>
+    <nav class="mui-bar mui-bar-tab" id="nav-bar">
+        <a id="defaultTab" class="mui-tab-item " href="../../index.html">
+			<span class="mui-icon icon-order"></span>
+			<span class="mui-tab-label">订单管理</span>
+		</a>
+        <a class="mui-tab-item " href="../user/user-manage.html">
+			<span class="mui-icon icon-user"></span>
+			<span class="mui-tab-label">用户管理</span>
+		</a>
+        <a class="mui-tab-item mui-active" href="../data/data-statistics.html">
+			<span class="mui-icon icon-data"></span>
+			<span class="mui-tab-label">数据统计</span>
+		</a>
+        <a class="mui-tab-item" href="../mine/person-center.html">
+			<span class="mui-icon icon-mine"></span>
+			<span class="mui-tab-label">个人中心</span>
+		</a>
+    </nav>
     <script src="../../mui/js/mui.min.js"></script>
 </body>
 

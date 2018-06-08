@@ -24,9 +24,8 @@ html,body{
 }
 
 #hint {
-    position: relative;
-    /*margin-top: .8rem; */
-    margin-top: 44px;
+    position: fixed;
+    top: 44px;
     height: .86rem;
     padding: .1rem 1.8rem .1rem .24rem;
     text-align: justify;
@@ -34,6 +33,7 @@ html,body{
     line-height: 1.4;
     color: #fa8100;
     background-color: #ffedc0;
+    max-width: 750px;
 }
 
 #slider .mui-slider-indicator.mui-segmented-control {

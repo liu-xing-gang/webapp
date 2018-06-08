@@ -24,7 +24,7 @@
             </div>
             <ul class="mui-table-view">
                 <li class="mui-table-view-cell" v-for="item in arrTypes">
-                    <a class="mui-navigate-right">
+                    <a :href="item.href" class="mui-navigate-right">
                         <span class="p-txt-title fix-w"><i v-text="item.name"></i> <i v-text="item.status"></i></span>
                         <span class="btn-toggle">设置</span>
 					</a>
@@ -33,46 +33,58 @@
         </div>
     </div>
     <script src="../../libs/vue.min.js"></script>
+    <script src="../../mui/js/mui.min.js"></script>
     <script>
         new Vue({
             el: '#p-info',
             data: {
                 arrTypes: [{
                         name: '竞彩足球',
-                        status: '开'
+                        status: '开',
+                        href: "lottery-types-set.html",
                     }, {
                         name: '竞彩篮球',
-                        status: '开'
+                        status: '开',
+                        href: "lottery-types-set.html",
                     }, {
                         name: '冠亚军',
-                        status: '开'
+                        status: '开',
+                        href: "lottery-types-set.html",
                     },
                     {
                         name: '七乐彩',
-                        status: '开'
+                        status: '开',
+                        href: "lottery-types-set.html",
                     }, {
                         name: '福彩3D',
-                        status: '开'
+                        status: '开',
+                        href: "lottery-types-set.html",
                     }, {
                         name: '双色球',
-                        status: '开'
+                        status: '开',
+                        href: "lottery-types-set.html",
                     },
                     {
                         name: '吉林快3',
-                        status: '开'
+                        status: '开',
+                        href: "lottery-types-set.html",
                     }, {
                         name: '超级大乐透',
-                        status: '开'
+                        status: '开',
+                        href: "lottery-types-set.html",
                     }, {
                         name: '排列三',
-                        status: '开'
+                        status: '开',
+                        href: "lottery-types-set.html",
                     },
                     {
                         name: '胜负彩',
-                        status: '开'
+                        status: '开',
+                        href: "lottery-types-set.html",
                     }, {
                         name: '任选九',
-                        status: '开'
+                        status: '开',
+                        href: "lottery-types-set.html",
                     }
                 ]
             }

@@ -25,6 +25,9 @@
         <header class="mui-bar mui-bar-nav" id="bar">
             <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
             <h1 class="mui-title">派单店铺</h1>
+            <a class="mui-icon mui-pull-right btn-right">?
+                <!-- <img src="../../images/iocn-filter.png" alt="" class="img-responsive"> -->
+            </a>
         </header>
         <section class="mui-content">
             <div class="bg-white">
@@ -40,19 +43,17 @@
                 同意后您将收到该店铺的合作订单
             </div>
             <div class="container bg-white">
-
                 <div class="tab-main">
-
                     <div v-for="(item, index) in data">
                         <div v-if="item.active">
-                                <div class="empty paddt160" v-if="item.active">
-                                        <!-- <div class="empty-box">
+                            <div class="empty paddt160" v-if="item.active">
+                                <!-- <div class="empty-box">
                                             <img src="../../images/no-bill.png" alt="" class="img-responsive" />
                                         </div> -->
-                                        <div class="empty-txt">
-                                            {{ index }} 暂时没有合作邀请~(⊙o⊙)！
-                                        </div>
-                                    </div>
+                                <div class="empty-txt">
+                                    {{ index }} 暂时没有合作邀请~
+                                </div>
+                            </div>
                         </div>
                     </div>
 
