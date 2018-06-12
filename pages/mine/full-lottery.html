@@ -147,14 +147,71 @@
                 </div>
             </div>
 
-            <div class="container">
-                <div class="tab-award-main">
-                    <div class="tab-list" v-for="(item, index) in data" v-if="item.active">
-                        {{ item }}
-                    </div>
-                </div>
-            </div>
 
+            <div class="tab-award-main">
+                <section v-for="(item, index) in data" v-if="item.active">
+                    <div class="awart-cart-list">
+                        <section class="award-cart-item">
+                            <div class="a-cont">
+                                <ul class="a-detail">
+                                    <li>
+                                        <div class="a-checkbox">
+                                            <input type="checkbox" name="" id="">
+                                        </div>
+                                        <div class="a-txt">
+                                            <span class="font32">双色球<i class="a-tag">追号</i></span>
+                                            <span class="fr font28">第2018067期</span>
+                                        </div>
+                                    </li>
+                                    <li>订单号: <span>TE20180608000004959598</span></li>
+                                    <li>过关方式：<span>2串1</span></li>
+                                    <li>出票时间：<span>2018-06-08 11:13:16</span></li>
+                                </ul>
+                            </div>
+                            <div class="a-foot">
+                                <span class="fr a-money">奖金<i class="color2">4.9</i>元</span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </section>
+                        <section class="award-cart-item">
+                            <div class="a-cont">
+                                <ul class="a-detail">
+                                    <li>
+                                        <div class="a-checkbox">
+                                            <input type="checkbox" name="" id="">
+                                        </div>
+                                        <div class="a-txt">
+                                            <span class="font32">双色球<i class="a-tag">追号</i></span>
+                                            <span class="fr font28">第2018067期</span>
+                                        </div>
+                                    </li>
+                                    <li>订单号: <span>TE20180608000004959598</span></li>
+                                    <li>过关方式：<span>2串1</span></li>
+                                    <li>出票时间：<span>2018-06-08 11:13:16</span></li>
+                                </ul>
+                            </div>
+                            <div class="a-foot">
+                                <span class="fr a-money">奖金<i class="color2">4.9</i>元</span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </section>
+                        <section class="a-settle bg-white">
+                            <ul class="a-detail">
+                                <li>
+                                    <div class="a-checkbox">
+                                        <input type="checkbox" name="" id="">
+                                    </div>
+                                    <div class="a-txt">
+                                        <span class="font32">全选</span>
+                                        <span class="font32 margl120">合计<i class="color2">0.00元</i></span>
+                                        <button class="fr btn-settle">派奖<i>（0）</i></button>
+                                    </div>
+                                </li>
+                            </ul>
+                        </section>
+                    </div>
+                </section>
+            </div>
         </main>
     </div>
     <script src="../../libs/vue.min.js"></script>

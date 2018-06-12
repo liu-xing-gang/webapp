@@ -7,12 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-
     <link rel="stylesheet" href="../../mui/css/mui.min.css">
     <link rel="stylesheet" href="../../app.css" />
     <link rel="stylesheet" href="order.css" />
     <script src="../../app.js"></script>
-
+    <style type="text/css">
+        .mui-content>.mui-table-view:first-child {
+            margin-top: -1px;
+        }
+    </style>
 </head>
 
 <body>
@@ -23,15 +26,107 @@
             <img src="../../images/icon-search.png" alt="" class="img-responsive">
         </a>
     </header>
-    <main class="mui-content">
+    <!-- <main class="mui-content">
         <div class="o-empty">
             <div class="o-empty-box"><img src="../../images/order-empty.png" alt="" class="img-responsive" /></div>
             <div class="o-empty-txt">暂时没有用户订单哦~</div>
         </div>
-    </main>
-
+    </main> -->
+    <!--下拉刷新容器-->
+    <div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+        <div class="mui-scroll">
+            <!--数据列表-->
+            <ul class="mui-table-view mui-table-view-chevron">
+                <li>
+                    <section class="order-item">
+                        <div class="o-i-header">
+                            <div class="o-i-box fl"><img src="../../images/icon-ball1.png" alt="" class="img-responsive"></div>
+                            <div class="o-i-txt">
+                                <span class="font32">双色球<i class="o-i-tag">追号</i></span>
+                                <spn class="fr font28">第2018067期</spn>
+                            </div>
+                        </div>
+                        <div class="o-i-main">
+                            <div class="prize-num">
+                                <span>04</span><span>10</span><span>19</span><span>21</span>
+                                <span>31</span><span>32</span>
+                                <span class="o-i-special">| <i>07</i></span>
+                            </div>
+                            <div class="prize-detail">
+                                <span><i class="color1">1</i> 注</span>
+                                <span><i class="color1">1</i> 倍</span>
+                                <span><i class="color-y1">2.00</i> 元</span>
+                                <span class="fr o-i-time">2018-06-11 10:04:47</span>
+                            </div>
+                        </div>
+                        <div class="o-i-footer">
+                            <button class="btn-to fl"><img src="images/icon-action1.png" alt="" class="img-responsive"></button>
+                            <button class="btn-o-i fr">立即出票</button>
+                            <button class="btn-o-i active fr">拍照出票</button>
+                            <div class="clearfix"></div>
+                        </div>
+                    </section>
+                </li>
+            </ul>
+        </div>
+    </div>
     <script src="../../libs/vue.min.js"></script>
     <script src="../../mui/js/mui.min.js"></script>
+    <script>
+        mui.init({
+            pullRefresh: {
+                container: '#pullrefresh',
+                down: {
+                    style: 'circle',
+                    callback: pulldownRefresh
+                },
+                up: {
+                    auto: true,
+                    contentrefresh: '正在加载...',
+                    callback: pullupRefresh
+                }
+            }
+        });
+
+        var count = 0;
+
+        function pullupRefresh() {
+            setTimeout(function() {
+                mui('#pullrefresh').pullRefresh().endPullupToRefresh((++count > 2)); //参数为true代表没有更多数据了。
+                var table = document.body.querySelector('.mui-table-view');
+                var cells = document.body.querySelectorAll('.mui-table-view-cell');
+                var newCount = cells.length > 0 ? 5 : 20; //首次加载20条，满屏
+                // for (var i = cells.length, len = i + newCount; i < len; i++) {
+                //     var li = document.createElement('li');
+                //     li.className = 'mui-table-view-cell';
+                //     li.innerHTML = '<a class="mui-navigate-right">Item ' + (i + 1) + '</a>';
+                //     table.appendChild(li);
+                // }
+            }, 1500);
+        }
+
+        function addData() {
+            var table = document.body.querySelector('.mui-table-view');
+            var cells = document.body.querySelectorAll('.mui-table-view-cell');
+            for (var i = cells.length, len = i + 5; i < len; i++) {
+                var li = document.createElement('li');
+                li.className = 'mui-table-view-cell';
+                li.innerHTML = '<a class="mui-navigate-right">Item ' + (i + 1) + '</a>';
+                //下拉刷新，新纪录插到最前面；
+                table.insertBefore(li, table.firstChild);
+            }
+        }
+        /**
+         * 下拉刷新具体业务实现
+         */
+        function pulldownRefresh() {
+            setTimeout(function() {
+                addData();
+                mui('#pullrefresh').pullRefresh().endPulldownToRefresh();
+                mui.toast("1/3");
+            }, 1500);
+        }
+    </script>
 </body>
 
 </html>

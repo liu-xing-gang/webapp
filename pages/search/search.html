@@ -1,34 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-        <meta charset="utf-8">
-        <title>搜索</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    
-        <link rel="stylesheet" href="../../mui/css/mui.min.css">
-        <link rel="stylesheet" href="../../app.css" />
-        <link rel="stylesheet" href="um.css" />
-        <script src="../../app.js"></script>
+    <meta charset="utf-8">
+    <title>搜索</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="../../mui/css/mui.min.css">
+    <link rel="stylesheet" href="../../app.css" />
+    <link rel="stylesheet" href="search.css">
+    <script src="../../app.js"></script>
 </head>
+
 <body>
-        <header class="mui-bar mui-bar-nav">
+    <div class="search">
+        <form action="">
+            <header class="mui-bar mui-bar-nav search">
                 <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-                <!-- <input type="text" placeholder="请输入手机号"> -->
+                <input type="search" placeholder="请输入手机号" class="input-search" autofocus v-focus="true">
                 <a href="../search/search.html" class="mui-icon mui-pull-right btn-basic">
-                    <img src="../../images/icon-search.png" alt="" class="img-responsive">
-                </a>
+                                <img src="../../images/icon-search.png" alt="" class="img-responsive">
+                            </a>
             </header>
+        </form>
         <main class="main">
-            <div class="contaienr">
-                <h1>搜索历史</h1>
+            <div class="container">
+                <h1 class="s-title">搜索历史</h1>
                 <div class="search-histoy">
-                    <p class="txt-center"><a href="">清空搜索历史</a></p>
+                    <div class="hunt" v-if="arrRecentlyS.length>0">
+                        <!-- <h1 class="h-title">最近搜索<a class="fr" @click="clear(arrRecentlyS)">删除</a></h1> -->
+                        <div class="h-box">
+                            <a href="" class="h-btn" v-for="item in arrRecentlyS"><span v-text="item.name"></span></a>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <p class="txt-center"><a @click="clearHistory">清空搜索历史</a></p>
                 </div>
             </div>
         </main>
-        <script src="../../vue.min.js"></script>
-        <script src="../../mui/js/mui.min.js"></script>
+    </div>
+    <script src="../../libs/vue.min.js"></script>
+    <script src="../../mui/js/mui.min.js"></script>
+    <script>
+        new Vue({
+            el: '.search',
+            data: {
+                arrRecentlyS: [
+                    {
+                        name: 'iphone'
+                    }, {
+                        name: '小米'
+                    }, {
+                        name: '华为'
+                    }, {
+                        name: '1+'
+                    }, {
+                        name: '魅族'
+                    }, {
+                        name: '锤子'
+                    }, {
+                        name: 'oppo'
+                    }, {
+                        name: '三星'
+                }],
+            },
+            methods: {
+                clearHistory: function() {
+                    if(this.arrRecentlyS.length > 0) {
+                        var btnArray = ['否', '是'];
+                        var _this = this
+                        mui.confirm('确定要清空吗？', '', btnArray, function(e) {
+                            if (e.index == 1) {
+                                _this.arrRecentlyS = []
+                            } else {
+
+                            }
+                        })
+                    }
+                    return false
+                },
+            },
+            directives: {
+                focus: {
+                    inserted: function(el, {
+                        value
+                    }) {
+                        if (value) {    
+                            el.focus();    
+                        }   
+                    }
+                }
+            }
+        })
+    </script>
 </body>
+
 </html>

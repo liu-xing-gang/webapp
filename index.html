@@ -97,7 +97,6 @@
         .mui-slider-indicator.mui-segmented-control {
             background-color: #efeff4;
         }
-        
     </style>
 </head>
 
@@ -123,8 +122,7 @@
         </div>
         <div :class="bShow == true ? 'layer-mask active' : 'layer-mask'" @click="toggleLayer"></div>
         <div id="slider" class="mui-slider mui-fullscreen">
-            <div id="sliderSegmentedControl"
-                class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+            <div id="sliderSegmentedControl" class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
                 <div class="mui-scroll" id="mui-scroll">
                     <a class="mui-control-item mui-active" href="#item1mobile">
 						订单(0)
@@ -142,139 +140,180 @@
             </div>
             <div class="mui-slider-group">
                 <div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
-                        <div class="mui-scroll">
-                                <ul class="mui-table-view">
-                                        <li>
-                                                <div class="o-empty">
-                                                        <div class="o-empty-box"><img src="images/order-empty.png" alt="" class="img-responsive" /></div>
-                                                        <div class="o-empty-txt">暂时没有用户订单哦~</div>
-                                                    </div>
-                                        </li>
-                            
-                            </ul>
-                        </div>
-
+                    <div class="mui-scroll">
+                        <ul class="mui-table-view">
+                            <li>
+                                <section class="order-item">
+                                    <div class="o-i-header">
+                                        <div class="o-i-box fl"><img src="images/icon-ball1.png" alt="" class="img-responsive"></div>
+                                        <div class="o-i-txt">
+                                            <span class="font32">双色球<i class="o-i-tag">追号</i></span>
+                                            <spn class="fr font28">第2018067期</spn>
+                                        </div>
+                                    </div>
+                                    <div class="o-i-main">
+                                        <div class="prize-num">
+                                            <span>04</span><span>10</span><span>19</span><span>21</span>
+                                            <span>31</span><span>32</span>
+                                            <span class="o-i-special">| <i>07</i></span>
+                                        </div>
+                                        <div class="prize-detail">
+                                            <span><i class="color1">1</i> 注</span>
+                                            <span><i class="color1">1</i> 倍</span>
+                                            <span><i class="color-y1">2.00</i> 元</span>
+                                            <span class="fr o-i-time">2018-06-11 10:04:47</span>
+                                        </div>
+                                    </div>
+                                    <div class="o-i-footer">
+                                        <button class="btn-to fl"><img src="images/icon-action1.png" alt="" class="img-responsive"></button>
+                                        <button class="btn-o-i fr">立即出票</button>
+                                        <button class="btn-o-i active fr">拍照出票</button>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </section>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
                 <div id="item2mobile" class="mui-slider-item mui-control-content">
-  
-                        <div class="mui-scroll">
-                                <ul class="mui-table-view">
-                                        <li>
-                                                <div class="o-empty">
-                                                        <div class="o-empty-box"><img src="images/order-empty.png" alt="" class="img-responsive" /></div>
-                                                        <div class="o-empty-txt">暂时没有用户订单哦~</div>
-                                                    </div>
-                                        </li>
-                            
-                            </ul>
-                        </div>
-   
+                    <div class="mui-scroll">
+                        <ul class="mui-table-view">
+                            <li class="mui-table-view-cell">
+                                <a href="pages/order/documentary-query.html" class="media">
+                                    <section class="m-left fl flex-center">
+                                        <div class="m-center">
+                                            <span class="color2">50.00%</span>
+                                        </div>
+                                    </section>
+                                    <section class="m-main fr">
+                                        <section class="m-main-h">
+                                            <span class="m-main-title">竞彩足球</span>
+                                            <span class="m-main-title">混合</span>
+                                            <span class="m-main-title fr">130****0110</span>
+                                        </section>
+                                        <section class="m-main-b">
+                                            <div class="m-main-item">
+                                                <div class="m-num-small">2</div>
+                                                <div>方案金额</div>
+                                            </div>
+                                            <div class="m-main-item">
+                                                <div class="m-num-small">1</div>
+                                                <div>单份金额</div>
+                                            </div>
+                                            <div class="m-main-item">
+                                                <div class="m-num-small">1</div>
+                                                <div>剩余份数</div>
+                                            </div>
+                                        </section>
+                                    </section>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
                 <div id="item3mobile" class="mui-slider-item mui-control-content">
-     
-                        <div class="mui-scroll">
-                            <ul class="mui-table-view">
-                                <li class="mui-table-view-cell">
-                                    <a href="pages/order/documentary-query.html" class="media">
-                                        <section class="m-left fl flex-center">
-                                            <div class="m-center">
-                                                <div class="m-num">1</div>
-                                                <div>跟单人数</div>
+                    <div class="mui-scroll">
+                        <ul class="mui-table-view">
+                            <li class="mui-table-view-cell">
+                                <a href="pages/order/documentary-query.html" class="media">
+                                    <section class="m-left fl flex-center">
+                                        <div class="m-center">
+                                            <div class="m-num">1</div>
+                                            <div>跟单人数</div>
+                                        </div>
+                                    </section>
+                                    <section class="m-main fr">
+                                        <section class="m-main-h">
+                                            <span class="m-main-title">竞彩足球</span>
+                                            <span class="m-main-title">混合</span>
+                                            <span class="m-main-title fr">小财神</span>
+                                        </section>
+                                        <section class="m-main-b">
+                                            <div class="m-main-item">
+                                                <div class="m-num-small">7<i>%</i></div>
+                                                <div>佣金比例</div>
+                                            </div>
+                                            <div class="m-main-item">
+                                                <div class="m-num-small">2</div>
+                                                <div>单倍金额</div>
+                                            </div>
+                                            <div class="m-main-item">
+                                                <div class="m-num-small color-1">1830</div>
+                                                <div>方案总金额</div>
                                             </div>
                                         </section>
-                                        <section class="m-main fr">
-                                            <section class="m-main-h">
-                                                <span class="m-main-title">竞彩足球</span>
-                                                <span class="m-main-title">混合</span>
-                                                <span class="m-main-title fr">小财神</span>
-                                            </section>
-
-                                            <section class="m-main-b">
-                                                <div class="m-main-item">
-                                                    <div class="m-num-small">7<i>%</i></div>
-                                                    <div>佣金比例</div>
-                                                </div>
-                                                <div class="m-main-item">
-                                                    <div class="m-num-small">2</div>
-                                                    <div>单倍金额</div>
-                                                </div>
-                                                <div class="m-main-item">
-                                                    <div class="m-num-small color-1">1830</div>
-                                                    <div>方案总金额</div>
-                                                </div>
-                                            </section>
-
-
+                                    </section>
+                                </a>
+                            </li>
+                            <li class="mui-table-view-cell">
+                                <a href="pages/order/documentary-query.html" class="media">
+                                    <section class="m-left fl flex-center">
+                                        <div class="m-center">
+                                            <div class="m-num">1</div>
+                                            <div>跟单人数</div>
+                                        </div>
+                                    </section>
+                                    <section class="m-main fr">
+                                        <section class="m-main-h">
+                                            <span class="m-main-title">竞彩足球</span>
+                                            <span class="m-main-title">混合</span>
+                                            <span class="m-main-title fr">小财神</span>
                                         </section>
-                                    </a>
-                                </li>
-                                <li class="mui-table-view-cell">
-                                    <a href="pages/order/documentary-query.html" class="media">
-                                        <section class="m-left fl flex-center">
-                                            <div class="m-center">
-                                                <div class="m-num">1</div>
-                                                <div>跟单人数</div>
+
+                                        <section class="m-main-b">
+                                            <div class="m-main-item">
+                                                <div class="m-num-small">7<i>%</i></div>
+                                                <div>佣金比例</div>
+                                            </div>
+                                            <div class="m-main-item">
+                                                <div class="m-num-small">2</div>
+                                                <div>单倍金额</div>
+                                            </div>
+                                            <div class="m-main-item">
+                                                <div class="m-num-small color-1">1830</div>
+                                                <div>方案总金额</div>
                                             </div>
                                         </section>
-                                        <section class="m-main fr">
-                                            <section class="m-main-h">
-                                                <span class="m-main-title">竞彩足球</span>
-                                                <span class="m-main-title">混合</span>
-                                                <span class="m-main-title fr">小财神</span>
-                                            </section>
-
-                                            <section class="m-main-b">
-                                                <div class="m-main-item">
-                                                    <div class="m-num-small">7<i>%</i></div>
-                                                    <div>佣金比例</div>
-                                                </div>
-                                                <div class="m-main-item">
-                                                    <div class="m-num-small">2</div>
-                                                    <div>单倍金额</div>
-                                                </div>
-                                                <div class="m-main-item">
-                                                    <div class="m-num-small color-1">1830</div>
-                                                    <div>方案总金额</div>
-                                                </div>
-                                            </section>
-
-
-                                        </section>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-
+                                    </section>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
                 <div id="item4mobile" class="mui-slider-item mui-control-content">
                     <div class="mui-scroll-wrapper">
                         <div class="mui-scroll">
                             <ul class="mui-table-view">
-                               <li>4</li>
+                                <li>
+                                    <div class="o-empty">
+                                        <div class="o-empty-box"><img src="images/order-empty.png" alt="" class="img-responsive" /></div>
+                                        <div class="o-empty-txt">暂时没有用户订单哦~</div>
+                                    </div>
+                                </li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
-        </div> 
+        </div>
 
         <nav class="mui-bar mui-bar-tab" id="nav-bar">
             <a id="defaultTab" class="mui-tab-item mui-active" href="pages/order/order-manage.html">
-					<span class="mui-icon icon-order"></span>
-					<span class="mui-tab-label">订单管理</span>
-				</a>
+				<span class="mui-icon icon-order"></span>
+				<span class="mui-tab-label">订单管理</span>
+			</a>
             <a class="mui-tab-item" href="pages/user/user-manage.html">
-					<span class="mui-icon icon-user"></span>
-					<span class="mui-tab-label">用户管理</span>
-				</a>
+				<span class="mui-icon icon-user"></span>
+				<span class="mui-tab-label">用户管理</span>
+			</a>
             <a class="mui-tab-item" href="pages/data/data-statistics.html">
-					<span class="mui-icon icon-data"></span>
-					<span class="mui-tab-label">数据统计</span>
-				</a>
+				<span class="mui-icon icon-data"></span>
+				<span class="mui-tab-label">数据统计</span>
+			</a>
             <a class="mui-tab-item" href="pages/mine/person-center.html">
-					<span class="mui-icon icon-mine"></span>
-					<span class="mui-tab-label">个人中心</span>
-				</a>
+				<span class="mui-icon icon-mine"></span>
+				<span class="mui-tab-label">个人中心</span>
+			</a>
         </nav>
     </div>
     <script src="libs/vue.min.js"></script>
@@ -300,9 +339,9 @@
 
 
         mui.init({
-            gestureConfig:{
-				doubletap:true
-			},
+            gestureConfig: {
+                doubletap: true
+            },
         });
         (function($) {
             //阻尼系数
@@ -368,7 +407,6 @@
             Ccp.Common.getInstance().init()
             dynamicTop()
         }
-
     </script>
 </body>
 

@@ -171,6 +171,10 @@ body {
     height: auto;
 }
 
+.inline-block{
+    display: inline-block; *display: inline; *zoom: 1;
+}
+
 .fl {
     float: left;
 }
@@ -569,8 +573,8 @@ header.mui-bar{
 /* 记录 */
 
 .bill {
-    font-size: .28rem;
-    color: #666;
+    font-size: .32rem;
+    color: #303030;
 }
 
 .bill .table {
@@ -612,6 +616,7 @@ header.mui-bar{
     width: 100%;
     padding: .24rem;
     text-align: center;
+    font-size: .32rem;
     line-height: 1;
 }
 
@@ -667,9 +672,9 @@ header.mui-bar{
     -o-transform: translateX(-50%);
 }
 
-.tab-main li {
+/* .tab-main li {
     display: none;
-}
+} */
 
 
 /* tab切换效果 */
@@ -878,3 +883,102 @@ header.mui-bar{
     margin: 0 0 0 -18px;
 }
 
+
+/* 通用记录列表样式 */
+.detail .table{
+    width: 100%;
+    text-align: center;
+    font-size: .32rem;
+    color: #666;
+}
+
+.detail .table-cell{
+    padding: .2rem 0;
+    text-align: center;
+}
+
+.detail .table{
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.detail .yuan{
+    font-style: normal;
+    color: #fe5840;
+}
+
+.detail.average .table{
+    border: none;
+}
+
+.detail.average li:first-child{
+    background-color: #f2f2f2;
+}
+
+.detail.average li:last-child{
+    border-bottom: none;
+}
+
+.detail.average li{
+    padding: 0 .24rem;
+    font-size: .28rem;
+    background-color: #fff;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.detail.average .table-cell{
+    width: 25%;
+}
+
+.detail.one-third li{
+    padding: 0 .24rem;
+}
+
+
+.detail.one-third .table-cell{
+    font-size: .28rem;
+    width: 33.333%;
+}
+
+
+
+.detail.average .table{
+    margin: 0 .24em;
+}
+
+.count{
+    padding-top: .24rem;
+    font-size: .32rem;
+    color: #666;
+    background: #fff;
+}
+
+.count .table{
+    width: 100%; padding-bottom: .2rem;
+    text-align: center;
+}
+
+.count .table-cell{
+    width: 50%;
+}
+
+.color-y1{
+    color: #fe8e08;
+}
+
+.font28{
+    font-size: .28rem;
+    color: #808080;
+}
+
+.font32{
+    font-size: .32rem;
+    color: #303030;
+}
+
+.color1{
+    color: #303030;
+}
+
+.color2{
+    color: #d2241b!important;
+}

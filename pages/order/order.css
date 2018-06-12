@@ -391,3 +391,101 @@ html,body{
     background: url(../../images/icon-triangle-down.png) no-repeat right center;
     background-size: .48rem .48rem;
 }
+
+/* 订单列表项 */
+.order-item{
+    padding: .28rem 0 0;
+    font-size: .32rem; line-height: 1;
+    background-color: #fff;
+}
+
+.order-item > div{
+    padding: 0 .24rem;
+}
+
+.order-item span{
+    vertical-align: middle;
+}
+
+.order-item i{
+    font-style: normal;
+}
+
+.order-item .o-i-header::after{
+    display: block;
+    clear: both;
+    content: "";
+    visibility: hidden;
+    height: 0;
+}
+
+.order-item .o-i-header{
+    height: .8rem; margin-bottom: .28rem;
+    line-height: .8rem;
+    zoom: 1
+}
+
+.order-item .o-i-box{
+    width: .8rem; height: .8rem; margin-right: .16rem; border-radius: 50%;
+    overflow: hidden;
+}
+
+.order-item .o-i-tag::before{
+    content: '';
+    position: absolute; top: 0; left: .1rem;
+    width: 1px; height: 100%; background-color: #303030;
+}
+
+.order-item .o-i-tag{
+    position: relative;
+    padding: 0 .2rem;
+    font-size: .28rem;
+}
+
+.order-item .o-i-main{
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.order-item .prize-num{
+    margin-bottom: .28rem;
+    font-size: .32rem;
+    color: #e41e1f;
+}
+
+.order-item .prize-detail{
+    margin-bottom: .28rem;
+    font-size: .28rem;
+    color: #808080;
+}
+
+.order-item .o-i-special{
+    color: #4b89dc;
+}
+
+.order-item .o-i-footer{
+    padding: .28rem .24rem;
+}
+
+.order-item .o-i-footer button{
+    display: block;
+}
+
+.order-item .btn-to{
+    width: .6rem; height: .6rem; margin: 0; padding: 0; border: none;
+    background: url(../../images/icon-action1.png) no-repeat center;
+    background-size: contain;
+}
+
+.order-item .btn-o-i{
+    width: 1.6rem; height: .6rem; margin: 0 0 0 .1rem; padding: 0; border-radius: .1rem; border: 1px solid #4b89dc;
+    font-size: .28rem; text-align: center;
+    color: #4b89dc;
+    transition: .3s ease-in-out;
+}
+
+.order-item .btn-o-i.active{
+    color: #fff;
+    background-color: #4b89dc;
+}
+
+

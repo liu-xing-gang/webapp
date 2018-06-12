@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="../../mui/css/mui.min.css">
+    <link rel="stylesheet" href="../../app.css" />
+    <link rel="stylesheet" href="um.css" />
+    <script src="../../app.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <header class="mui-bar mui-bar-nav" id="bar">
+            <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+            <h1 class="mui-title">用户信息</h1>
+        </header>
+        <main class="mui-content">
+            <div class="user-info">
+                <div class="u-i-front"></div>
+                <div class="u-i-row">
+                    <div class="u-i-box fl">
+                        <img src="../../images/avatar-demo.jpg" alt="" class="img-responsive">
+                    </div>
+                    <div class="paddl160">
+                        <a class="inline-block u-i-status">已认证</a>
+                        <a href="" class="inline-block u-i-remark">设置备注</a>
+                    </div>
+                </div>
+                <div class="u-i-row">
+                    <div class="u-i-phone">00012345678</div>
+                </div>
+                <div class="u-i-line margb24">
+                    <span class="u-i-total">余额<i>￥0.00</i></span>
+                    <a href="" class="fr margt30 btn-transfer">转账</a>
+                </div>
+                <div id="links">
+                    <ul class="mui-table-view mui-table-view-chevron">
+                        <li class="mui-table-view-cell">
+                            <a href="">
+                                <span class="span-l">用户名</span>
+                                <span class="span-r">123 4567 0000</span>
+                            </a>
+                        </li>
+                        <li class="mui-table-view-cell">
+                            <a href="">
+                                <span class="span-l">绑定手机</span>
+                                <span class="span-r">123 4567 0000</span>
+                            </a>
+                        </li>
+                        <li class="mui-table-view-cell">
+                            <a href="">
+                                <span class="span-l">注册时间</span>
+                                <span class="span-r">123 4567 0000</span>
+                            </a>
+                        </li>
+                        <li class="mui-table-view-cell margb24">
+                            <a href="" class="mui-navigate-right">
+                                <span class="span-l">历史投注</span>
+                            </a>
+                        </li>
+                        <li class="mui-table-view-cell margb24">
+                            <div class="mui-navigate-right no-arrow">
+                                <span class="p-txt-title fix-w">发布跟单</span>
+                                <div class="fr mui-switch mui-switch-green mui-switch-mini mui-active">
+                                    <div class="mui-switch-handle"></div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="mui-table-view-cell">
+                            <a href="">
+                                <span class="span-l">用户来源</span>
+                                <span class="span-r">安卓端</span>
+                            </a>
+                        </li>
+                        <li class="mui-table-view-cell">
+                            <a href="user-recommend.html" class="mui-navigate-right">
+                                <span class="span-l">用户推荐的彩民</span>
+                            </a>
+                        </li>
+                        <li class="mui-table-view-cell">
+                            <div class="mui-navigate-right no-arrow">
+                                <span class="p-txt-title fix-w">推荐数据可见</span>
+                                <div class="fr mui-switch mui-switch-green mui-switch-mini mui-active">
+                                    <div class="mui-switch-handle"></div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="../../libs/vue.min.js"></script>
+    <script src="../../mui/js/mui.min.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+
+            },
+
+        })
+    </script>
+</body>
+
+</html>

@@ -335,9 +335,6 @@
                     var btns = $('.btn');
                     btns.each(function(i, btn) {
                         btn.addEventListener('tap', function() {
-                            var mask = mui.createMask();//callback为用户点击蒙版时自动执行的回调；
-                            mask.show();//显示遮罩
-                            
                             var _self = this;
                             
                             if (_self.picker) {
@@ -358,8 +355,6 @@
                                  * 也可以直接通过代码声明 optinos 用于实例化 DtPicker
                                  */
                                 _self.picker = new $.DtPicker(options);
-
-                               console.log(_self.picker)
 
 
                                 _self.picker.show(function(rs) {
@@ -386,7 +381,6 @@
                                      */
                                     _self.picker.dispose();
                                     _self.picker = null;
-                                    mask.close();//关闭遮罩
                                 });
                             }
 

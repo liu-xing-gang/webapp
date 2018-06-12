@@ -15,40 +15,71 @@
 </head>
 
 <body>
-    <header class="mui-bar mui-bar-nav">
-        <a href="../mine/documentary-set.html" class="mui-icon mui-pull-left btn-left">跟单设置</a>
-        <h1 id="title" class="mui-title">用户管理</h1>
-        <a href="../search/search.html" class="mui-icon mui-pull-right btn-basic">
+    <div id="app">
+        <header class="mui-bar mui-bar-nav">
+            <a href="../mine/documentary-set.html" class="mui-icon mui-pull-left btn-left">跟单设置</a>
+            <h1 id="title" class="mui-title">用户管理</h1>
+            <a href="../search/search.html" class="mui-icon mui-pull-right btn-basic">
             <img src="../../images/icon-search.png" alt="" class="img-responsive">
         </a>
-    </header>
-    <div id="um" class="main">
-        <div class="u-empty">
+        </header>
+        <div class="main um">
+            <!-- <div class="u-empty">
             <img src="../../images/u-empty.png" alt="" class="img-responsive" />
             <p class="empty-txt">您还没有用户，赶快推广吧~</p>
+        </div> -->
+            <section class="um-list">
+                <a href="user-info.html" class="um-item" v-for="user in users">
+                    <div class="um-box fl">
+                        <img :src="user.uavatar" alt="" class="img-responsive">
+                    </div>
+                    <div class="um-txt">
+                        <div class="um-line">
+                            <span v-text="user.ustatus"></span>
+                            <span class="fr" v-text="user.utime">2</span>
+                        </div>
+                        <div class="um-line">
+                            <span v-text="user.uphone"></span>
+                            <span class="fr">余额<i class="um-money" v-text="user.umoney"></i>元</span>
+                        </div>
+                    </div>
+                </a>
+            </section>
         </div>
-    </div>
-    <nav class="mui-bar mui-bar-tab" id="nav-bar">
+        <nav class="mui-bar mui-bar-tab" id="nav-bar">
             <a id="defaultTab" class="mui-tab-item " href="../../index.html">
-					<span class="mui-icon icon-order"></span>
-					<span class="mui-tab-label">订单管理</span>
-				</a>
+			<span class="mui-icon icon-order"></span>
+			<span class="mui-tab-label">订单管理</span>
+		</a>
             <a class="mui-tab-item mui-active" href="../user/user-manage.html">
-					<span class="mui-icon icon-user"></span>
-					<span class="mui-tab-label">用户管理</span>
-				</a>
+			<span class="mui-icon icon-user"></span>
+			<span class="mui-tab-label">用户管理</span>
+		</a>
             <a class="mui-tab-item" href="../data/data-statistics.html">
-					<span class="mui-icon icon-data"></span>
-					<span class="mui-tab-label">数据统计</span>
-				</a>
+			<span class="mui-icon icon-data"></span>
+			<span class="mui-tab-label">数据统计</span>
+		</a>
             <a class="mui-tab-item" href="../mine/person-center.html">
-					<span class="mui-icon icon-mine"></span>
-					<span class="mui-tab-label">个人中心</span>
-				</a>
+			<span class="mui-icon icon-mine"></span>
+			<span class="mui-tab-label">个人中心</span>
+		</a>
         </nav>
+    </div>
+    <script src="../../libs/vue.min.js"></script>
     <script src="../../mui/js/mui.min.js"></script>
     <script src="../../mui/js/mui.pullToRefresh.js"></script>
     <script src="../../mui/js/mui.pullToRefresh.material.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                users: [
+                    {uavatar: '../../images/avatar-demo.jpg', ustatus: '未设置', utime: '2018-06-08 15:20:25', uphone: '00012345676789', umoney: '00'}
+                ]
+            },
+
+        })
+    </script>
 </body>
 
 </html>
