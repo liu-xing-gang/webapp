@@ -4,21 +4,16 @@ body {
 	background: #fff;
 }
 
-
-/*.mui-input-group:before{
-	background: none;
-}*/
-
 .login a {
 	color: #666;
 }
 
 .login .login-form {
-	margin-top: 1rem; padding: 0 .4rem;
+	margin-top: .8rem; padding: 0 .4rem;
 }
 
 .login .login-way {
-	margin-top: 30px;
+	margin-top: .3rem;
 	text-align: center; font-size: .32rem;
 	
 }
@@ -135,7 +130,7 @@ body {
 }
 
 .login .login-input-line {
-	margin-bottom: .68rem;
+	margin-bottom: .6rem;
 }
 
 .login .login-input-line .input-yzm {
@@ -154,10 +149,12 @@ body {
 	color: #2674d9;
 	border: none;
 	vertical-align: middle;
+	opacity: 1!important;
 }
 
-.login .btn-get-yzm:hover{
+.login .btn-get-yzm:hover, .login .btn-get-yzm:focus, .login .btn-get-yzm:active .login .btn-get-yzm:disabled{
 	font-size: .28rem;
 	color: #2674d9;
 	background: none;
+	opacity: 1!important;
 }

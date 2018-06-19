@@ -25,9 +25,9 @@
         </header>
         <div class="main um">
             <!-- <div class="u-empty">
-            <img src="../../images/u-empty.png" alt="" class="img-responsive" />
-            <p class="empty-txt">您还没有用户，赶快推广吧~</p>
-        </div> -->
+                <img src="../../images/u-empty.png" alt="" class="img-responsive" />
+                <p class="empty-txt">您还没有用户，赶快推广吧~</p>
+            </div> -->
             <section class="um-list">
                 <a href="user-info.html" class="um-item" v-for="user in users">
                     <div class="um-box fl">
@@ -35,12 +35,12 @@
                     </div>
                     <div class="um-txt">
                         <div class="um-line">
-                            <span v-text="user.ustatus"></span>
-                            <span class="fr" v-text="user.utime">2</span>
+                            <span v-text="user.ustatus" class="font28"></span>
+                            <span class="fr" v-text="user.utime" class="font28"></span>
                         </div>
                         <div class="um-line">
                             <span v-text="user.uphone"></span>
-                            <span class="fr">余额<i class="um-money" v-text="user.umoney"></i>元</span>
+                            <span class="fr">余额: <i class="um-money" v-text="user.umoney"></i> 元</span>
                         </div>
                     </div>
                 </a>
@@ -73,11 +73,20 @@
         new Vue({
             el: '#app',
             data: {
-                users: [
-                    {uavatar: '../../images/avatar-demo.jpg', ustatus: '未设置', utime: '2018-06-08 15:20:25', uphone: '00012345676789', umoney: '00'}
-                ]
+                users: [{
+                    uavatar: '../../images/avatar-demo.jpg',
+                    ustatus: '未设置',
+                    utime: '2018-06-08 15:20:25',
+                    uphone: '13353739191',
+                    umoney: '0'
+                }, {
+                    uavatar: '../../images/avatar-demo.jpg',
+                    ustatus: '未设置',
+                    utime: '2018-06-08 15:20:25',
+                    uphone: '13353739191',
+                    umoney: '0'
+                }]
             },
-
         })
     </script>
 </body>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no"/> 
+    <link rel="stylesheet" href="../../mui/css/mui.min.css">
+    <link rel="stylesheet" href="../../mui/css/mui.picker.min.css">
+    <link rel="stylesheet" href="../../app.css" />
+    <!-- <link rel="stylesheet" href="um.css" /> -->
+    <script src="../../app.js"></script>
+    <style>
+        html,
+        body {
+            background-color: #fff;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="app">
+        <header class="mui-bar mui-bar-nav" id="bar">
+            <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+            <h1 class="mui-title">用户数据</h1>
+        </header>
+        <section class="mui-content">
+            <div class="container bg-white paddV40 ">
+                <div class="serach-form">
+                    <div class="time-box">
+                        <div class="fl time-select time-start btn" data-options='{"type":"date"}'>2018.05.21</div>
+                        <div class="fl time-select time-end btn" data-options='{"type":"date"}'>2018.05.21</div>
+                    </div>
+                    <button type="button" class="btn-query">查询</button>
+                </div>
+            </div>
+            <div class="bg-white margb2">
+                <ul class="tab">
+                    <li class="table tab-h">
+                        <!-- <div class="table-cell">用户列表</div>
+                    <div class="table-cell">用户来源</div>
+                    <div class="table-cell">彩种数据</div> -->
+                        <div v-for="item in data" :class="item.active == true ? 'table-cell active' : 'table-cell'" @click="tabChange(item)">
+                            <span v-text="item.name"></span>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="bg-white">
+                <div class="tab-main" v-for="(item,index) in data">
+                    <div v-if="index==0 && item.active == true">
+                        <div class="count">
+                            <div class="table">
+                                <div class="table-cell">投注金额(元)</div>
+                                <div class="table-cell">中奖金额(元)</div>
+                            </div>
+                            <div class="table">
+                                <div class="table-cell color-y1">23.00</div>
+                                <div class="table-cell color-y1">0.00</div>
+                            </div>
+                        </div>
+                        <ul class="detail average">
+                            <li>
+                                <div class="table ">
+                                    <div class="table-cell">用户名</div>
+                                    <div class="table-cell">投注金额</div>
+                                    <div class="table-cell">中奖金额</div>
+                                    <div class="table-cell">详情</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="table">
+                                    <div class="table-cell">00012345678</div>
+                                    <div class="table-cell">20.00</div>
+                                    <div class="table-cell">0.00</div>
+                                    <div class="table-cell"><a href="">查看</a></div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="table">
+                                    <div class="table-cell">00012345678</div>
+                                    <div class="table-cell">20.00</div>
+                                    <div class="table-cell">0.00</div>
+                                    <div class="table-cell"><a href="">查看</a></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div v-if="index==1 && item.active == true">
+                        <div class="count">
+                            <div class="table">
+                                <div class="table-cell">注册用户： <span class="color-y1">4人</span></div>
+                            </div>
+                        </div>
+                        <ul class="detail average">
+                            <li>
+                                <div class="table ">
+                                    <div class="table-cell">用户来源</div>
+                                    <div class="table-cell">注册彩民</div>
+                                    <div class="table-cell">详情</div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="table">
+                                    <div class="table-cell">安卓端</div>
+                                    <div class="table-cell">2</div>
+                                    <div class="table-cell"><a href="">查看</a></div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="table">
+                                    <div class="table-cell">安卓端</div>
+                                    <div class="table-cell">2</div>
+                                    <div class="table-cell"><a href="">查看</a></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>  
+                    <div v-if="index==2 && item.active == true">
+                        <div class="empty paddt160">
+                            <div class="empty-box">
+                                <img src="../../images/no-bill.png" alt="" class="img-responsive" />
+                            </div>
+                            <div class="empty-txt">
+                                暂无数据~+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="../../libs/vue.min.js"></script>
+    <script src="../../mui/js/mui.min.js"></script>
+    <script src="../../mui/js/mui.picker.min.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                data: [{
+                        name: '用户列表'
+                    },
+                    {
+                        name: '用户来源'
+                    },
+                    {
+                        name: '彩种数据'
+                    }
+                ],
+                show: true
+            },
+            mounted: function() {
+                (function($) {
+                    $.init();
+                    var result = $('#result')[0];
+                    var btns = $('.btn');
+                    btns.each(function(i, btn) {
+                        btn.addEventListener('tap', function() {
+                            var _self = this;
+                            if (_self.picker) {
+                                _self.picker.show(function(rs) {
+                                    // result.innerText = '选择结果: ' + rs.text;
+                                    _self.innerText = rs.text;
+                                    _self.picker.dispose();
+                                    _self.picker = null;
+                                });
+                            } else {
+                                var optionsJson = this.getAttribute('data-options') || '{}';
+                                var options = JSON.parse(optionsJson);
+                                var id = this.getAttribute('id');
+                                /*
+                                 * 首次显示时实例化组件
+                                 * 示例为了简洁，将 options 放在了按钮的 dom 上
+                                 * 也可以直接通过代码声明 optinos 用于实例化 DtPicker
+                                 */
+                                _self.picker = new $.DtPicker(options);
+                                _self.picker.show(function(rs) {
+                                    /*
+                                     * rs.value 拼合后的 value
+                                     * rs.text 拼合后的 text
+                                     * rs.y 年，可以通过 rs.y.vaue 和 rs.y.text 获取值和文本
+                                     * rs.m 月，用法同年
+                                     * rs.d 日，用法同年
+                                     * rs.h 时，用法同年
+                                     * rs.i 分（minutes 的第二个字母），用法同年
+                                     */
+                                    // result.innerText = '选择结果: ' + rs.text;
+                                    _self.innerText = rs.text;
+                                    /* 
+                                     * 返回 false 可以阻止选择框的关闭
+                                     * return false;
+                                     */
+                                    /*
+                                     * 释放组件资源，释放后将将不能再操作组件
+                                     * 通常情况下，不需要示放组件，new DtPicker(options) 后，可以一直使用。
+                                     * 当前示例，因为内容较多，如不进行资原释放，在某些设备上会较慢。
+                                     * 所以每次用完便立即调用 dispose 进行释放，下次用时再创建新实例。
+                                     */
+                                    _self.picker.dispose();
+                                    _self.picker = null;
+                                });
+                            }
+
+                        }, false);
+                    });
+                })(mui);
+
+                // 注入active实现选项卡切换
+                this.data.forEach((o, i) => {
+                    if (i === 0) {
+                        this.$set(o, 'active', true)
+                    } else {
+                        this.$set(o, 'active', false)
+                    }
+                })
+            },
+            methods: {
+                tabChange(tar) {
+                    this.data.forEach((o, i) => {
+                        o.active = false
+                    })
+                    tar.active = true
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

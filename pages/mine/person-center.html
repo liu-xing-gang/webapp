@@ -58,7 +58,7 @@
 					</a>
                 </li>
                 <li class="mui-table-view-cell">
-                    <a href="full-lottery.html" class="mui-navigate-right">
+                    <a href="award.html" class="mui-navigate-right">
 						<span class="span-l icon-award">派奖</span>
 						<span class="span-r">0单未派奖</span>
 					</a>
@@ -69,11 +69,11 @@
 						<span class="span-r">0单未派奖</span>
 					</a>
                 </li>
-                <li class="mui-table-view-cell"  @click="isAuthed">
+                <li class="mui-table-view-cell" @click="isAuthed">
                     <div class="mui-navigate-right">
-						<span class="span-l icon-cash">提现</span>
-						<span class="span-r txt-color1">可提余额：0.00</span>
-					</div>
+                        <span class="span-l icon-cash">提现</span>
+                        <span class="span-r txt-color1">可提余额：0.00</span>
+                    </div>
                 </li>
                 <li class="mui-table-view-cell">
                     <a href="person-auth.html" class="mui-navigate-right">
@@ -156,23 +156,23 @@
             </ul>
         </div>
         <nav class="mui-bar mui-bar-tab" id="nav-bar">
-                <a id="defaultTab" class="mui-tab-item " href="../../index.html">
-                        <span class="mui-icon icon-order"></span>
-                        <span class="mui-tab-label">订单管理</span>
-                    </a>
-                <a class="mui-tab-item " href="../user/user-manage.html">
-                        <span class="mui-icon icon-user"></span>
-                        <span class="mui-tab-label">用户管理</span>
-                    </a>
-                <a class="mui-tab-item" href="../data/data-statistics.html">
-                        <span class="mui-icon icon-data"></span>
-                        <span class="mui-tab-label">数据统计</span>
-                    </a>
-                <a class="mui-tab-item mui-active" href="../mine/person-center.html">
-                        <span class="mui-icon icon-mine"></span>
-                        <span class="mui-tab-label">个人中心</span>
-                    </a>
-            </nav>
+            <a id="defaultTab" class="mui-tab-item " href="../../index.html">
+                <span class="mui-icon icon-order"></span>
+                <span class="mui-tab-label">订单管理</span>
+            </a>
+            <a class="mui-tab-item " href="../user/user-manage.html">
+                <span class="mui-icon icon-user"></span>
+                <span class="mui-tab-label">用户管理</span>
+            </a>
+            <a class="mui-tab-item" href="../data/data-statistics.html">
+                <span class="mui-icon icon-data"></span>
+                <span class="mui-tab-label">数据统计</span>
+            </a>
+            <a class="mui-tab-item mui-active" href="../mine/person-center.html">
+                <span class="mui-icon icon-mine"></span>
+                <span class="mui-tab-label">个人中心</span>
+            </a>
+        </nav>
     </div>
     <script src="../../libs/vue.min.js"></script>
     <script src="../../mui/js/mui.min.js"></script>
@@ -181,18 +181,20 @@
             window.webkit.messageHandlers.nav.postMessage('trans');
         }
 
-
         new Vue({
             el: '#person',
             data: {
                 data: []
             },
-            mounted: function(){
+            mounted: function() {
 
             },
             methods: {
-                isAuthed: function(){
-                    mui.toast('请进行实名认证',{ duration:'500', type:'div' }) 
+                isAuthed: function() {
+                    mui.toast('请进行实名认证', {
+                        duration: '500',
+                        type: 'div'
+                    })
                 }
             }
         })

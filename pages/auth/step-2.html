@@ -46,42 +46,40 @@
                         为了给您和彩民持续提供更安全便捷的服务，请您认真上传认证资料，我们会在24小时内电话通知您审核结果。
                     </div>
                     <ul class="uploads-images">
-                        <li>
+                        <li class="uploads-image-item">
                             <div class="uploads-img-box active">
-                                <img src="" class="preview_img_a" alt="" />
+                                <img src="" id="preview_img_a" alt="" />
                             </div>
                             <div class="uploads-img-text">上传销售许可证</div>
-                            <input class="file_input fileA" type="file" onchange="upload('.fileA', '.preview_img_a', '.id-card-url');" accept="image/gif,image/jpeg,image/jpg,image/png" />
+                            <h5-upload :os="judgeOS" trigger="fileA" preview="preview_img_a" action="sheet1"></h5-upload>
                         </li>
-                        <li>
+                        <li class="uploads-image-item">
                             <div class="uploads-img-box active">
                                 <img src="../../images/auth-demo-1.png" alt="" />
                             </div>
                             <div class="uploads-img-text">示例1</div>
                         </li>
-                        <li>
-
+                        <li class="uploads-image-item">
                             <div class="uploads-img-box active">
-                                <img src="" class="preview_img_b" alt="" />
+                                <img src="" id="preview_img_b" alt="" />
                             </div>
                             <div class="uploads-img-text">手持身份证</div>
-                            <input class="file_input fileA" type="file" onchange="upload('.fileA', '.preview_img_b', '.id-card-url');" accept="image/gif,image/jpeg,image/jpg,image/png" />
-
+                            <h5-upload :os="judgeOS" trigger="fileB" preview="preview_img_b" action="sheet2"></h5-upload>
                         </li>
-                        <li>
+                        <li class="uploads-image-item">
                             <div class="uploads-img-box active">
                                 <img src="../../images/auth-demo-2.png" alt="" />
                             </div>
                             <div class="uploads-img-text">示例2</div>
                         </li>
-                        <li>
+                        <li class="uploads-image-item">
                             <div class="uploads-img-box active">
-                                <img src="" class="preview_img_c" alt="" />
+                                <img src="" id="preview_img_c" alt="" />
                             </div>
                             <div class="uploads-img-text">彩店照片</div>
-                            <input class="file_input fileA" type="file" onchange="upload('.fileA', '.preview_img_c', '.id-card-url');" accept="image/gif,image/jpeg,image/jpg,image/png" />
+                            <h5-upload :os="judgeOS" trigger="fileC" preview="preview_img_c" action="sheet3"></h5-upload>
                         </li>
-                        <li>
+                        <li class="uploads-image-item">
                             <div class="uploads-img-box active">
                                 <img src="../../images/auth-demo-3.png" alt="" />
                             </div>
@@ -93,49 +91,98 @@
             </div>
             <button type="button" class="btn-block" @click="showLayer">下一步</button>
         </form>
-
     </div>
-    <script src="../../mui/js/mui.min.js"></script>
+    <script type="text/x-template" id="test2">
+        <div :id="action" class="mui-popover mui-popover-bottom mui-popover-action ">
+                <ul class="mui-table-view">
+                    <li class="mui-table-view-cell">
+                        拍照{{preview}}
+                        <input class="file_input" id="fileCamera" type="file" accept="image/*" capture="camera" 
+                            onclick="mui('#sheet1').popover('toggle')" 
+                            @change="Ccp.Common.getInstance().upload('fileCamera', preview);" />
+                    </li>
+                    <li class="mui-table-view-cell">
+                        照片图库
+                        <input class="file_input" id="filePhoto" type="file" accept="image/*" multiple 
+                            onclick="mui('#sheet1').popover('toggle')" 
+                            @change="Ccp.Common.getInstance().upload('filePhoto', preview);" />
+                    </li>
+                </ul>
+                <ul class="mui-table-view">
+                    <li class="mui-table-view-cell">
+                        <a :href="'#'+action"><b>取消</b></a>
+                    </li>
+                </ul>
+        </div>
+    </script>
+    <script type="text/x-template" id="test">
+        <div>
+            <div v-if="os === 'android'">
+                <div class="file_input android-trigger" @click="popover(action)"></div>
+                <android-action :preview="preview" :data-id="preview" :action="action"></android-action>
+            </div>
+            <div v-else-if="os === 'ios'">
+                <input class="file_input" type="file" accept="image/gif,image/jpeg,image/jpg,image/png" @change="upload(trigger, preview)" :id="trigger" />
+            </div>
+        </div>
+    </script>
     <script src="../../libs/vue.min.js"></script>
+    <script src="../../libs/layer_mobile/layer.js"></script>
+    <script src="../../mui/js/mui.min.js"></script>
+    
     <script>
         if (isiOSApp()) {
             window.webkit.messageHandlers.nav.postMessage('trans');
         }
 
-        (function() {
-            try {
-                if (mui.os.android) {
-                    // $("selector").find("input[type='file']").attr("capture","camera");
-                } else {
-                    // $("selector").find("input[type='file']").removeAttr("capture");
+        Vue.component('h5-upload', {
+            props: {
+                os: String,
+                trigger: String,
+                preview: String,
+                action: String
+            },
+            template: '#test',
+            methods: {
+                upload: function(trigger, preview) {
+                    Ccp.Common.getInstance().upload(trigger, preview);
+                },
+                popover: function(str){
+                    var _str = '#'+str
+                    mui(_str).popover('show', document.getElementById("sheet2"))
+                    console.log(_str)
                 }
-            } catch (e) {
-                console.log(e.message)
-            }
-        })()
+            },
+        })
 
-        // 上传
-        var upload = function(c, d, e) {
-            "use strict";
-            var $c = document.querySelector(c),
-                $d = document.querySelector(d),
-                $e = document.querySelector(e),
-                file = $c.files[0],
-                reader = new FileReader();
-            reader.readAsDataURL(file);
-            reader.onload = function(e) {
-                $d.setAttribute("src", e.target.result);
 
-                var str = $($e).val()
-                str += ' ' + file.name
-                $($e).val(str)
-            };
-        };
+        Vue.component('android-action', {
+            props: {
+                preview: String,
+                action: String
+            },
+            template: '#test2',
+        })
+
+       
 
         new Vue({
             el: '#app',
             data: {
-                show: false
+                show: false,
+                sys: 'ios'
+            },
+            mounted: function() {
+            },
+            computed: {
+                judgeOS: function() {
+                    if (mui.os.ios === true) {
+                        this.sys = 'ios'
+                    } else if (mui.os.android === true) {
+                        this.sys = 'android'
+                    }
+                    return this.sys
+                }
             },
             methods: {
                 showLayer: function() {

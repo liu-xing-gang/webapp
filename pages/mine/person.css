@@ -290,6 +290,7 @@ body {
     height: .72rem;
     border-radius: 50%;
     vertical-align: middle;
+    overflow: hidden;
 }
 
 #p-info .p-txt {
@@ -1089,5 +1090,9 @@ body {
 
 .btn-settle:active{
     opacity: .8;
+}
+
+.change-avatar{
+    left: 2.1rem;
 }
 

@@ -399,7 +399,7 @@ html,body{
     background-color: #fff;
 }
 
-.order-item > div{
+.order-item a > div{
     padding: 0 .24rem;
 }
 
@@ -420,7 +420,7 @@ html,body{
 }
 
 .order-item .o-i-header{
-    height: .8rem; margin-bottom: .28rem;
+    height: .8rem; margin-bottom: .24rem;
     line-height: .8rem;
     zoom: 1
 }
@@ -447,13 +447,13 @@ html,body{
 }
 
 .order-item .prize-num{
-    margin-bottom: .28rem;
+    margin-bottom: .2rem;
     font-size: .32rem;
     color: #e41e1f;
 }
 
 .order-item .prize-detail{
-    margin-bottom: .28rem;
+    margin-bottom: .2rem;
     font-size: .28rem;
     color: #808080;
 }
@@ -463,6 +463,7 @@ html,body{
 }
 
 .order-item .o-i-footer{
+    position: relative;
     padding: .28rem .24rem;
 }
 
@@ -471,13 +472,16 @@ html,body{
 }
 
 .order-item .btn-to{
-    width: .6rem; height: .6rem; margin: 0; padding: 0; border: none;
+    position: absolute; left: .24rem; top: 50%;
+    width: .44rem; height: .44rem; margin: 0; padding: 0; border: none;
     background: url(../../images/icon-action1.png) no-repeat center;
     background-size: contain;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
 }
 
 .order-item .btn-o-i{
-    width: 1.6rem; height: .6rem; margin: 0 0 0 .1rem; padding: 0; border-radius: .1rem; border: 1px solid #4b89dc;
+    width: 1.8rem; height: .6rem; margin: 0 0 0 .3rem; padding: 0; border-radius: .1rem; border: 1px solid #4b89dc;
     font-size: .28rem; text-align: center;
     color: #4b89dc;
     transition: .3s ease-in-out;
@@ -488,4 +492,122 @@ html,body{
     background-color: #4b89dc;
 }
 
+.area i{
+    font-style: normal;
+}
+
+.area .area-row{
+    padding: .24rem;
+    background-color: #fff;
+}
+
+.area .area-row span{
+    vertical-align: middle;
+}
+
+.area .box{
+    float: left;
+    width: 1rem; height: 1rem; border-radius: 50%; overflow: hidden;
+}
+
+.area .area-main{
+    padding-left: 1.2rem;
+}
+
+.area .area-line{
+    line-height: 1;
+}
+
+.area .one{
+    padding-top: .24rem;
+    line-height: 1;
+}
+
+.area .table{
+    width: 100%; padding-top: .28rem;
+}
+
+.area .table-cell{
+    width: 33.333%;
+    text-align: center;
+    line-height: 1.6;
+}
+
+.btn-input-upload{
+    position: relative;
+    width: 1.6rem; height: 1.6rem; border: 2px dashed #f0f0f0;
+    background: url(../../images/icon-input-upload.png) no-repeat center;
+    background-size: .64rem .64rem;
+}
+
+.btn-input-upload input[type=file]{
+    position: absolute; z-index: 2; width: 100%;
+    height: 100%;
+    opacity: 0;
+    filter: alpha(opacity = 0);
+}
+
+.btn-input-upload img{
+    position: absolute; width: 100%;
+    height: 100%;
+}
+
+.btn-basis-group{
+    height: 1rem;
+}
+
+.btn-basis-group .btn-basis{
+    float: left;
+    display: block; margin: 0; padding: 0; border: none; border-radius: 0;
+    width: 50%; height: 1rem;
+    font-size: .32rem; 
+    color: #808080;
+    /* line-height: 1rem; */
+} 
+
+.btn-basis-group .btn-out-ticket{
+    color: #fff;
+    background-color: #4b89dc;
+}
+
+.btn-cancel-order{
+    position: relative;
+    padding-top: .5rem!important;
+}
+
+.btn-cancel-order img{
+    position: absolute; top: .1rem; left: 50%;
+    width: .4rem; height: .4rem;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+}
+
+.margb24{
+    margin-bottom: .24rem;
+}
+
+.paddv10{
+    padding: .1rem 0;
+}
+
+.paddv24{
+    padding: .24rem 0;
+}
+
+.paddb24{
+    padding-bottom: .24rem;
+}
+
+
+.tag::before{
+    content: '';
+    position: absolute; top: 0; left: .1rem;
+    width: 1px; height: 100%; background-color: #303030;
+}
+
+.tag{
+    position: relative;
+    padding: 0 .2rem;
+    font-size: .28rem;
+}
 

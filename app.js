@@ -19,6 +19,7 @@ if (isiOSApp()) {
 }
 
 /**
+ * writed by liuxinggang | 2018/05/28 ~
  * 定义命名空间
  */
 var Ccp = window.Ccp = {}
@@ -31,12 +32,13 @@ Ccp.Common = (function () {
     var uniqueInstance
 
     function constructor() {
-        // 私有属性
-        var privateAttr1 = 1
-
-        // 私有方法
         /**
-         * rem适配
+         * 私有属性
+         */
+        var urlPrefix = ''
+
+        /**
+         * 私有方法
          */
         function resize() {
             var deviceWidth = document.documentElement.clientWidth
@@ -44,8 +46,99 @@ Ccp.Common = (function () {
             document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
         }
 
+        /**
+         * 文件上传
+         * c -- input
+         * d -- 预览图
+         * e -- 文件名显示元素
+         * 
+         */
+        function upload(c, d, e) {
+            "use strict"
+            // try {
+            //     if (mui.os.android) {
+            //         document.querySelector("input[type='file']").attr("capture","camera")
+            //     } else {
+            //         document.querySelector("input[type='file']").removeAttr("capture")
+            //     }
+            // } catch (e) {
+            //     console.log(e.message)
+            // }
+            var $c = document.querySelector('#'+c),
+                $d = document.querySelector('#'+d),
+                // $e = document.querySelector(e),
+                file = $c.files[0],
+                reader = new FileReader()
+
+            reader.readAsDataURL(file)
+            reader.onload = function (e) {
+                $d.setAttribute("src", e.target.result)
+                // var str = $($e).val()
+                // str += ' ' + file.name
+                // $($e).val(str)
+            }
+        }
+
+        /**
+         * 图片预览
+         * img.mui-action-preview
+         */
+        function initImgPreview(src) {
+            var imgs = imgs || document.querySelectorAll("img.mui-action-preview");
+            imgs = mui.slice.call(imgs);
+            if (imgs && imgs.length > 0) {
+                var slider = document.createElement("div");
+                slider.setAttribute("id", "__mui-imageview__");
+                slider.classList.add("mui-slider");
+                slider.classList.add("mui-fullscreen");
+                slider.style.display = "none";
+                slider.addEventListener("tap", function () {
+                    slider.style.display = "none";
+                });
+                slider.addEventListener("touchmove", function (event) {
+                    event.preventDefault();
+                })
+                var slider_group = document.createElement("div");
+                slider_group.setAttribute("id", "__mui-imageview__group");
+                slider_group.classList.add("mui-slider-group");
+                imgs.forEach(function (value, index, array) {
+                    //给图片添加点击事件，触发预览显示；
+
+                    value.addEventListener('tap', function (e) {
+                        // 更新url路径
+                        document.querySelector("#__mui-imageview__group .mui-slider-item img").src = e.target.src
+                        console.log(document.querySelector("#__mui-imageview__group .mui-slider-item img").src)
+
+                        slider.style.display = "block";
+                        slider.style.background = 'rgba(0,0,0,.8)'
+                        slider.style.zIndex = '20'
+                        _slider.refresh();
+                        _slider.gotoItem(index, 0);
+                    })
+                    var item = document.createElement("div");
+                    item.classList.add("mui-slider-item");
+                    var a = document.createElement("a");
+                    var img = document.createElement("img");
+                        
+                    img.setAttribute("src", value.src);
+                    a.appendChild(img)
+                    item.appendChild(a);
+                    slider_group.appendChild(item);
+                });
+                slider.appendChild(slider_group);
+                document.body.appendChild(slider);
+                var _slider = mui(slider).slider();
+
+            }
+        }
+
         return {
-            publicAttr1: 'public-attr1',
+            upload: function (c, d, e) {
+                upload(c, d, e)
+            },
+            imgPreview: function(){
+                initImgPreview()
+            },
             init: function () {
                 // 初始化
                 resize()
@@ -67,24 +160,25 @@ Ccp.Common = (function () {
 // 调用
 // Ccp.Common.getInstance().pubMethod1()
 Ccp.Common.getInstance().init()
-window.onorientationchange = window.onresize = function () {Ccp.Common.getInstance().init()}
+window.onorientationchange = window.onresize = function () {
+    Ccp.Common.getInstance().init()
+}
 
-window.onload = function(){
-    mui('#nav-bar').on('tap', 'a', function() {
+// 启用a标签的href跳转
+window.onload = function () {
+    mui('#nav-bar').on('tap', 'a', function () {
         var href = this.getAttribute('href');
-        
         //非plus环境，直接走href跳转
-        if(!mui.os.plus) {
+        if (!mui.os.plus) {
             location.href = href;
             return;
         }
     })
 
-    mui('.mui-table-view').on('tap', 'a', function() {
+    mui('.mui-table-view').on('tap', 'a', function () {
         var href = this.getAttribute('href');
-        
         //非plus环境，直接走href跳转
-        if(!mui.os.plus) {
+        if (!mui.os.plus) {
             location.href = href;
             return;
         }

@@ -97,6 +97,30 @@
         .mui-slider-indicator.mui-segmented-control {
             background-color: #efeff4;
         }
+
+        @keyframes fade {
+            0% {
+                opacity: 0;
+                filter: alpha(opacity=0);
+            }
+            50% {
+                opacity: .5;
+                filter: alpha(opacity=50);
+            }
+            100% {
+                opacity: 1;
+                filter: alpha(opacity=100);
+            }
+        }
+
+        .mui-table-view li {
+            margin-bottom: .24rem;
+            animation: fade .4s ease;
+        }
+
+        .mui-table-view li:last-child {
+            margin-bottom: 0;
+        }
     </style>
 </head>
 
@@ -142,30 +166,32 @@
                 <div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
                     <div class="mui-scroll">
                         <ul class="mui-table-view">
-                            <li>
+                            <li v-for="item in test">
                                 <section class="order-item">
-                                    <div class="o-i-header">
-                                        <div class="o-i-box fl"><img src="images/icon-ball1.png" alt="" class="img-responsive"></div>
-                                        <div class="o-i-txt">
-                                            <span class="font32">双色球<i class="o-i-tag">追号</i></span>
-                                            <spn class="fr font28">第2018067期</spn>
+                                    <a href="pages/order/order-detail3.html">
+                                        <div class="o-i-header">
+                                            <div class="o-i-box fl"><img src="images/icon-ball1.png" alt="" class="img-responsive"></div>
+                                            <div class="o-i-txt">
+                                                <span class="font32">双色球<i class="o-i-tag">追号</i></span>
+                                                <spn class="fr font24">第2018067期</spn>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="o-i-main">
-                                        <div class="prize-num">
-                                            <span>04</span><span>10</span><span>19</span><span>21</span>
-                                            <span>31</span><span>32</span>
-                                            <span class="o-i-special">| <i>07</i></span>
+                                        <div class="o-i-main">
+                                            <div class="prize-num">
+                                                <span>04</span><span>10</span><span>19</span><span>21</span>
+                                                <span>31</span><span>32</span>
+                                                <span class="o-i-special">| <i>07</i></span>
+                                            </div>
+                                            <div class="prize-detail">
+                                                <span><i class="color1">1</i> 注</span>
+                                                <span><i class="color1">1</i> 倍</span>
+                                                <span><i class="color-y1">2.00</i> 元</span>
+                                                <span class="fr o-i-time">2018-06-11 10:04:47</span>
+                                            </div>
                                         </div>
-                                        <div class="prize-detail">
-                                            <span><i class="color1">1</i> 注</span>
-                                            <span><i class="color1">1</i> 倍</span>
-                                            <span><i class="color-y1">2.00</i> 元</span>
-                                            <span class="fr o-i-time">2018-06-11 10:04:47</span>
-                                        </div>
-                                    </div>
+                                    </a>
                                     <div class="o-i-footer">
-                                        <button class="btn-to fl"><img src="images/icon-action1.png" alt="" class="img-responsive"></button>
+                                        <button class="btn-to"><img src="images/icon-action1.png" alt="" class="img-responsive"></button>
                                         <button class="btn-o-i fr">立即出票</button>
                                         <button class="btn-o-i active fr">拍照出票</button>
                                         <div class="clearfix"></div>
@@ -179,7 +205,7 @@
                     <div class="mui-scroll">
                         <ul class="mui-table-view">
                             <li class="mui-table-view-cell">
-                                <a href="pages/order/documentary-query.html" class="media">
+                                <a href="pages/order/order-detail2.html" class="media">
                                     <section class="m-left fl flex-center">
                                         <div class="m-center">
                                             <span class="color2">50.00%</span>
@@ -215,7 +241,7 @@
                     <div class="mui-scroll">
                         <ul class="mui-table-view">
                             <li class="mui-table-view-cell">
-                                <a href="pages/order/documentary-query.html" class="media">
+                                <a href="pages/order/order-detail.html" class="media">
                                     <section class="m-left fl flex-center">
                                         <div class="m-center">
                                             <div class="m-num">1</div>
@@ -298,7 +324,7 @@
         </div>
 
         <nav class="mui-bar mui-bar-tab" id="nav-bar">
-            <a id="defaultTab" class="mui-tab-item mui-active" href="pages/order/order-manage.html">
+            <a id="defaultTab" class="mui-tab-item mui-active" href="#">
 				<span class="mui-icon icon-order"></span>
 				<span class="mui-tab-label">订单管理</span>
 			</a>
@@ -322,27 +348,27 @@
     <script src="mui/js/mui.pullToRefresh.material.js"></script>
     <script>
         //
-        new Vue({
+        var vm = new Vue({
             el: '#app',
             data: {
                 bShow: false,
                 aTypes: ['全部彩种', '双色球', '竞猜篮球', '山东11选5'],
+                test: [1],
             },
             methods: {
                 toggleLayer: function() {
                     this.bShow = !this.bShow
                 },
-                selectType: function(e) {}
+
             }
         })
-
-
 
         mui.init({
             gestureConfig: {
                 doubletap: true
             },
         });
+
         (function($) {
             //阻尼系数
             var deceleration = mui.os.ios ? 0.003 : 0.0009;
@@ -352,6 +378,16 @@
                 deceleration: deceleration
             });
             $.ready(function() {
+                // mui-pull-loading提示信息
+                function pullback(index) {
+                    $.each(mui('.mui-pull-loading'), function(i, item) {
+                        if (index == i) {
+                            item.innerText = '暂无数据~'
+                            return
+                        }
+                    })
+                }
+
                 //循环初始化所有下拉刷新，上拉加载。
                 $.each(document.querySelectorAll('.mui-slider-group .mui-scroll'), function(index, pullRefreshEl) {
                     $(pullRefreshEl).pullToRefresh({
@@ -359,9 +395,12 @@
                             callback: function() {
                                 var self = this;
                                 setTimeout(function() {
-                                    var ul = self.element.querySelector('.mui-table-view');
-                                    ul.insertBefore(createFragment(ul, index, 10, true), ul.firstChild);
+                                    // var ul = self.element.querySelector('.mui-table-view');
+                                    // ul.insertBefore(createFragment(ul, index, 10, true), ul.firstChild);
+                                    // vm.$data.test.unshift(index)
+
                                     self.endPullDownToRefresh();
+                                    pullback(index)
                                 }, 1000);
                             }
                         },
@@ -369,9 +408,12 @@
                             callback: function() {
                                 var self = this;
                                 setTimeout(function() {
-                                    var ul = self.element.querySelector('.mui-table-view');
-                                    ul.appendChild(createFragment(ul, index, 5));
+                                    // var ul = self.element.querySelector('.mui-table-view');
+                                    // ul.appendChild(createFragment(ul, index, 5));
+                                    // vm.$data.test.push(index)
+
                                     self.endPullUpToRefresh();
+                                    pullback(index)
                                 }, 1000);
                             }
                         }
